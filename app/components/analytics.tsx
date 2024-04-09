@@ -1,7 +1,7 @@
 "use client";
 
 export function Analytics() {
-	const token = process.env.NEXT_PUBLIC_BEAM_TOKEN;
+	const token = "0af6c453-8294-4aed-a6ca-ff769bb83df2";
 	if (!token) {
 		return null;
 	}

@@ -7,5 +7,11 @@ const nextConfig = {
 		mdxRs: true,
 	},
 };
+module.exports = {
+	reactStrictMode: true,
+	images: {
+		domains: ['crishna.in'], //make it 'your-domain.com'
+	},
+};
 
 export default withContentlayer(nextConfig);

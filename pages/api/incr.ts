@@ -1,5 +1,6 @@
 import { Redis } from "@upstash/redis";
 import { NextRequest, NextResponse } from "next/server";
+import * as process from "process";
 
 const redis = Redis.fromEnv();
 export const config = {
@@ -7,6 +8,7 @@ export const config = {
 };
 
 export default async function incr(req: NextRequest): Promise<NextResponse> {
+  console.log("ENV value", process.env.UPSTASH_REDIS_REST_URL)
   if (req.method !== "POST") {
     return new NextResponse("use POST", { status: 405 });
   }

@@ -8,12 +8,12 @@ import {SpeedInsights} from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
     title: {
-        default: "crishna.in",
+        default: "Software Engineer | crishna.in",
         template: "%s | crishna.in",
     },
     description: "I'm a Software Engineer, Passionate about creating intuitive user experiences and building scalable solutions across platforms.",
     openGraph: {
-        title: "crishna.in",
+        title: "Software Engineer | crishna.in",
         description:
             "I'm a Software Engineer, Passionate about creating intuitive user experiences and building scalable solutions across platforms.",
         url: "https://crishna.in",
@@ -40,12 +40,14 @@ export const metadata: Metadata = {
         },
     },
     twitter: {
-        title: "crishna_k",
+        title: "Software Engineer - crishna_k",
         card: "summary_large_image",
     },
     icons: {
         shortcut: "/favicon.png",
     },
+    keywords: "Crishna, Sai Krishna, Sai Krishna Korukanti, Crishna Korukanti,Software Engineer, Android Developer, Mobile Developer, Full Stack Developer, Portfolio, crishna.in,",
+
 };
 const inter = Inter({
     subsets: ["latin"],

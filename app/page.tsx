@@ -36,7 +36,7 @@ export default function Home() {
 
             <div
                 className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0"/>
-            <div className="my-16 text-center animate-fade-in">
+            <div className="my-16 text-center animate-fade-in" style={{padding: 10}}>
                 <h2 className="text-sm text-zinc-500 ">
                     I'm a Software Engineer, Passionate about creating intuitive user experiences and building scalable
                     solutions across platforms.

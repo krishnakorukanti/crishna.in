@@ -1,0 +1,49 @@
+---
+title: "RiteSize"
+description: "RiteSize is an online marketplace for recycled plastic commodities, enabling manufacturers to discover transparent pricing with freight, book vetted supply globally, and generate volume discounts with group purchasing."
+date: "2023-11-01"
+url: https://ritesize.io/
+published: true
+---
+
+# Ritesize The easiest way to find reliable supply at the lowest price for recycled plastic.
+
+## Introduction
+
+Ritesize is a project we have developed to streamline the process of managing product sales orders. In this technical overview, I will provide a detailed insight into the technologies used, architecture, features, challenges faced, and future improvements of the Ritesize project.
+
+## Technologies Used
+
+### Frontend
+
+- **Next.js**: Next.js was chosen for its server-side rendering capabilities and ease of use in building React applications.
+- **Tailwind CSS**: Tailwind CSS was used for its utility-first approach, enabling rapid prototyping and styling.
+- **ShadCn UI**: This is NOT a component library. It's a collection of re-usable components that you can copy and paste into your apps.
+
+### Backend
+
+- **Node.js**: Node.js served as the backend runtime environment, facilitating event-driven, non-blocking I/O operations.
+- **Prisma**: Prisma was utilized as the ORM (Object-Relational Mapping) tool for database interactions, offering type-safe database access.
+- **PostgreSQL**: PostgreSQL was selected as the relational database management system for its robustness and scalability.
+
+## Architecture Overview
+
+The Ritesize project follows a client-server architecture, where the frontend interacts with the backend through RESTful APIs. The PostgreSQL database stores product and user-related data, managed by the Prisma ORM.
+
+## Features Implementation
+
+1. **Home Page with Products List**: The home page displays a list of products fetched from the backend and styled using Tailwind CSS.
+
+2. **Product Info**: Product details are retrieved dynamically from the backend and rendered on the product info page.
+
+3. **Login**: User authentication is implemented using Node.js, ensuring secure access to the application.
+
+4. **Submit a Product Sales Order**: Users can submit sales orders through a form, and then track using the order id.
+
+5. **Dashboard**: A user dashboard provides personalized insights and access to order history.
+
+6. **CMS (Content Management System)**: Backend CMS allows administrators to manage content dynamically.
+
+7. **Order Status**: Users can track the status of their orders in real-time.
+
+

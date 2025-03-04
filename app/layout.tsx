@@ -1,10 +1,10 @@
 import "../global.css";
-import {Inter} from "@next/font/google";
-import LocalFont from "@next/font/local";
-import {Metadata} from "next";
-import {BeamAnalytics} from "./components/beamAnalytics";
-import {Analytics} from "@vercel/analytics/react";
-import {SpeedInsights} from "@vercel/speed-insights/next";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+import { Metadata } from "next";
+import { BeamAnalytics } from "./components/beamAnalytics";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
     title: {
@@ -47,14 +47,15 @@ export const metadata: Metadata = {
         shortcut: "/favicon.png",
     },
     keywords: "Crishna, Sai Krishna, Sai Krishna Korukanti, Crishna Korukanti, Software Engineer, Android Developer, Mobile Developer, Full Stack Developer, Portfolio, crishna.in,",
-
+    metadataBase: new URL("https://crishna.in"),
 };
+
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-inter",
 });
 
-const calSans = LocalFont({
+const calSans = localFont({
     src: "../public/fonts/CalSans-SemiBold.ttf",
     variable: "--font-calsans",
 });

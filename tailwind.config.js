@@ -41,6 +41,8 @@ module.exports = {
 				title: "title 3s ease-out forwards",
 				"fade-left": "fade-left 3s ease-in-out forwards",
 				"fade-right": "fade-right 3s ease-in-out forwards",
+				"fade-in-up": "fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+				"pulse-slow": "pulse-slow 6s ease-in-out infinite",
 			},
 			keyframes: {
 				"fade-in": {
@@ -52,6 +54,26 @@ module.exports = {
 					},
 					"100%": {
 						opacity: "100%",
+					},
+				},
+				"fade-in-up": {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(10px)",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateY(0)",
+					},
+				},
+				"pulse-slow": {
+					"0%, 100%": {
+						opacity: "0.4",
+						transform: "scale(1)",
+					},
+					"50%": {
+						opacity: "0.6",
+						transform: "scale(1.05)",
 					},
 				},
 				"fade-left": {

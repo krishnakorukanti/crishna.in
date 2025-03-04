@@ -1,5 +1,5 @@
 [data-rehype-pretty-code-fragment] code {
-    @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
+    @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-white;
     counter-reset: line;
     box-decoration-break: clone;
   }
@@ -16,17 +16,74 @@
     color: gray;
   }
   [data-rehype-pretty-code-fragment] .line--highlighted {
-    @apply bg-zinc-300 bg-opacity-10;
+    @apply bg-zinc-700 bg-opacity-50;
   }
   [data-rehype-pretty-code-fragment] .line-highlighted span {
     @apply relative;
   }
   [data-rehype-pretty-code-fragment] .word--highlighted {
-    @apply rounded-md bg-zinc-300 bg-opacity-10 p-1;
+    @apply rounded-md bg-zinc-700 bg-opacity-50 p-1;
   }
   [data-rehype-pretty-code-title] {
-    @apply mt-4 py-2 px-4 text-sm font-medium;
+    @apply mt-4 py-2 px-4 text-sm font-medium bg-zinc-800 text-zinc-200 rounded-t-lg border-b border-zinc-700;
   }
   [data-rehype-pretty-code-title] + pre {
-    @apply mt-0;
+    @apply mt-0 rounded-t-none;
+  }
+
+  /* General MDX content styling */
+  .prose {
+    @apply text-zinc-200;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    @apply text-zinc-100 font-bold;
+  }
+  
+  .prose p {
+    @apply text-zinc-300;
+  }
+  
+  .prose a {
+    @apply text-blue-400 hover:text-blue-300 no-underline;
+  }
+  
+  .prose strong {
+    @apply text-zinc-100;
+  }
+  
+  .prose ul, .prose ol {
+    @apply text-zinc-300;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-zinc-700 bg-zinc-800/30 px-4 py-2 rounded-r-md text-zinc-300 italic;
+  }
+  
+  .prose img {
+    @apply rounded-lg border border-zinc-700 my-6 max-w-full;
+  }
+  
+  .prose pre {
+    @apply bg-zinc-900 text-zinc-200 rounded-lg p-4 overflow-x-auto;
+  }
+  
+  .prose code {
+    @apply bg-zinc-800 text-zinc-200 px-1.5 py-0.5 rounded-md text-sm;
+  }
+  
+  .prose hr {
+    @apply border-zinc-800 my-8;
+  }
+  
+  .prose table {
+    @apply border-collapse border border-zinc-800;
+  }
+  
+  .prose th {
+    @apply bg-zinc-800 text-zinc-200 p-2 border border-zinc-700;
+  }
+  
+  .prose td {
+    @apply p-2 border border-zinc-800 text-zinc-300;
   }

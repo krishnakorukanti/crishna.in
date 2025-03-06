@@ -104,8 +104,8 @@ const techStack = {
 };
 
 const terminalCommands = [
-    { command: "clear", delay: 200 },
-    { command: "ai-crishna start", delay: 400, output: [
+    { command: "clear", delay: 400 },
+    { command: "ai-crishna start", delay: 3000, output: [
         "🤖 Starting AI Crishna v1.0...",
         "🔄 Loading knowledge base...",
         "🧠 Initializing neural networks...",
@@ -114,12 +114,12 @@ const terminalCommands = [
         "",
         "Type 'help' for available commands or ask me anything about Krishna!"
     ]},
-    { command: "hi, who are you?", delay: 1000, output: [
+    { command: "hi, who are you?", delay: 4000, output: [
         "👋 Hello! I'm AI Crishna, a digital assistant powered by the skills and knowledge of Krishna Korukanti.",
         "I'm here to tell you about Krishna's experience, skills, and projects.",
         "What would you like to know about him?"
     ]},
-    { command: "tell me about krishna's background", delay: 1400, output: [
+    { command: "tell me about krishna's background", delay: 5000, output: [
         "💼 Krishna is a skilled Software Engineer & AI Product Developer based in Hyderabad, India.",
         "🧠 He specializes in building innovative applications across multiple platforms that solve real-world problems.",
         "📱 His mobile applications have achieved over 10 million downloads!",
@@ -127,7 +127,7 @@ const terminalCommands = [
         "",
         "Is there anything specific about his experience you'd like to know more about?"
     ]},
-    { command: "what are his key skills?", delay: 1800, output: [
+    { command: "what are his key skills?", delay: 5000, output: [
         "🔧 Technical Expertise:",
         "  • Full-stack development (React, Next.js, Node.js)",
         "  • Mobile development (Android, iOS, Flutter)",
@@ -137,7 +137,7 @@ const terminalCommands = [
         "💡 Krishna thrives on blending cutting-edge technology with intuitive user experiences.",
         "🎨 He's also passionate about creating seamless, beautiful UI/UX across all platforms."
     ]},
-    { command: "any interesting projects?", delay: 2200, output: [
+    { command: "any interesting projects?", delay: 5000, output: [
         "🚀 Notable Projects:",
         "  • Created AI-powered applications using LLMs and vector databases",
         "  • Developed mobile apps with millions of downloads",
@@ -146,7 +146,7 @@ const terminalCommands = [
         "",
         "📊 Scroll down to see detailed project showcases with descriptions and technologies used!"
     ]},
-    { command: "how can I contact him?", delay: 2600, output: [
+    { command: "how can I contact him?", delay: 5000, output: [
         "📞 You can reach Krishna at +91 9505588009",
         "📱 WhatsApp: +91 9505588009",
         "✉️ Email: hello@crishna.in",
@@ -155,7 +155,7 @@ const terminalCommands = [
         "",
         "He's always open to discussing new opportunities and interesting projects!"
     ]},
-    { command: "what makes him unique?", delay: 3000, output: [
+    { command: "what makes him unique?", delay: 5000, output: [
         "🔍 What sets Krishna apart:",
         "  • His ability to bridge technical excellence with product vision",
         "  • Experience across the entire development stack",
@@ -164,7 +164,7 @@ const terminalCommands = [
         "",
         "He's not just a coder - he's a problem solver who sees the bigger picture."
     ]},
-    { command: "thanks ai-crishna!", delay: 3400, output: [
+    { command: "thanks ai-crishna!", delay: 5000, output: [
         "You're welcome! Feel free to explore Krishna's portfolio below to see his work in more detail.",
         "If you have any other questions, you can also reach out directly.",
         "",
@@ -373,7 +373,6 @@ export default function Home() {
                 
                 {/* Terminal Animation */}
                 <div className="w-full max-w-3xl mx-auto mt-12 mb-4 px-4 animate-fade-in-up" style={{animationDelay: '700ms'}}>
-                    <div className="text-center mb-2 text-zinc-500 text-sm">Interactive AI Assistant Demo</div>
                     {Terminal && <Terminal commands={terminalCommands} />}
                 </div>
 

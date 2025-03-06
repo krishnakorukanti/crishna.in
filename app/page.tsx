@@ -485,7 +485,7 @@ export default function Home() {
                                         <div>
                                             <p className="text-zinc-400 text-sm">Location</p>
                                             <p className="text-zinc-300">
-                                                San Francisco Bay Area
+                                                Hyderabad, India
                                             </p>
                                         </div>
                                     </div>

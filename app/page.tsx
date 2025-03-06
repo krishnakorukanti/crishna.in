@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { FiCode, FiTerminal, FiServer, FiSmartphone, FiCpu, FiExternalLink, FiArrowRight, FiDatabase } from "react-icons/fi";
 import Avatar from "./components/Avatar";
 import AITextEffect from "./components/AITextEffect";
@@ -42,8 +42,8 @@ const navigation = [
 ];
 
 const socialLinks = [
-    { name: "GitHub", href: "https://github.com/crishnak", icon: FaGithub },
-    { name: "LinkedIn", href: "https://linkedin.com/in/crishnak", icon: FaLinkedin },
+    { name: "GitHub", href: "https://github.com/krishnakorukanti", icon: FaGithub },
+    { name: "LinkedIn", href: "https://linkedin.com/in/krishnakorukanti", icon: FaLinkedin },
     { name: "Twitter", href: "https://twitter.com/crishnak", icon: FaTwitter }
 ];
 
@@ -450,6 +450,30 @@ export default function Home() {
                                             <p className="text-zinc-400 text-sm">Email</p>
                                             <a href="mailto:hello@crishna.in" className="text-zinc-300 hover:text-blue-400 transition-colors duration-300">
                                                 hello@crishna.in
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex items-start space-x-4">
+                                        <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-green-500/30">
+                                            <FaPhoneAlt className="text-green-400 group-hover:scale-110 transition-transform duration-300" />
+                                        </div>
+                                        <div>
+                                            <p className="text-zinc-400 text-sm">Phone</p>
+                                            <a href="tel:+919505588009" className="text-zinc-300 hover:text-green-400 transition-colors duration-300">
+                                                +91 9505588009
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex items-start space-x-4">
+                                        <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-emerald-500/30">
+                                            <FaWhatsapp className="text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
+                                        </div>
+                                        <div>
+                                            <p className="text-zinc-400 text-sm">WhatsApp</p>
+                                            <a href="https://wa.me/919505588009" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-emerald-400 transition-colors duration-300">
+                                                +91 9505588009
                                             </a>
                                         </div>
                                     </div>

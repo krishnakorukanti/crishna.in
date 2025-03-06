@@ -103,12 +103,76 @@ const techStack = {
     ai: ["LLMs", "OpenAI", "RAG", "Vector Databases", "Embeddings", "Semantic Search"],
 };
 
-// Sample terminal commands for the header animation
 const terminalCommands = [
-    { command: "cd ~/projects", delay: 400 },
-    { command: "ls", delay: 600, output: ["ai-app/", "mobile-client/", "backend-api/", "web-frontend/"] },
-    { command: "cd ai-app && npm run dev", delay: 800, output: ["Starting development server...", "AI application running on http://localhost:3000"] }
+    { command: "clear", delay: 200 },
+    { command: "ai-crishna start", delay: 400, output: [
+        "🤖 Starting AI Crishna v1.0...",
+        "🔄 Loading knowledge base...",
+        "🧠 Initializing neural networks...",
+        "🔗 Establishing connections...",
+        "✅ AI Assistant ready!",
+        "",
+        "Type 'help' for available commands or ask me anything about Krishna!"
+    ]},
+    { command: "hi, who are you?", delay: 1000, output: [
+        "👋 Hello! I'm AI Crishna, a digital assistant powered by the skills and knowledge of Krishna Korukanti.",
+        "I'm here to tell you about Krishna's experience, skills, and projects.",
+        "What would you like to know about him?"
+    ]},
+    { command: "tell me about krishna's background", delay: 1400, output: [
+        "💼 Krishna is a skilled Software Engineer & AI Product Developer based in Hyderabad, India.",
+        "🧠 He specializes in building innovative applications across multiple platforms that solve real-world problems.",
+        "📱 His mobile applications have achieved over 10 million downloads!",
+        "🌐 He combines technical precision with creative problem-solving to create solutions that are both reliable and engaging.",
+        "",
+        "Is there anything specific about his experience you'd like to know more about?"
+    ]},
+    { command: "what are his key skills?", delay: 1800, output: [
+        "🔧 Technical Expertise:",
+        "  • Full-stack development (React, Next.js, Node.js)",
+        "  • Mobile development (Android, iOS, Flutter)",
+        "  • AI/ML integration & Large Language Models",
+        "  • Database design & optimization",
+        "",
+        "💡 Krishna thrives on blending cutting-edge technology with intuitive user experiences.",
+        "🎨 He's also passionate about creating seamless, beautiful UI/UX across all platforms."
+    ]},
+    { command: "any interesting projects?", delay: 2200, output: [
+        "🚀 Notable Projects:",
+        "  • Created AI-powered applications using LLMs and vector databases",
+        "  • Developed mobile apps with millions of downloads",
+        "  • Built scalable backend systems for high-traffic applications",
+        "  • Designed intuitive user interfaces across web and mobile platforms",
+        "",
+        "📊 Scroll down to see detailed project showcases with descriptions and technologies used!"
+    ]},
+    { command: "how can I contact him?", delay: 2600, output: [
+        "📞 You can reach Krishna at +91 9505588009",
+        "📱 WhatsApp: +91 9505588009",
+        "✉️ Email: hello@crishna.in",
+        "🔗 LinkedIn: https://linkedin.com/in/krishnakorukanti",
+        "💻 GitHub: https://github.com/krishnakorukanti",
+        "",
+        "He's always open to discussing new opportunities and interesting projects!"
+    ]},
+    { command: "what makes him unique?", delay: 3000, output: [
+        "🔍 What sets Krishna apart:",
+        "  • His ability to bridge technical excellence with product vision",
+        "  • Experience across the entire development stack",
+        "  • A focus on creating applications that solve real user problems",
+        "  • Continuous learning and adapting to emerging technologies",
+        "",
+        "He's not just a coder - he's a problem solver who sees the bigger picture."
+    ]},
+    { command: "thanks ai-crishna!", delay: 3400, output: [
+        "You're welcome! Feel free to explore Krishna's portfolio below to see his work in more detail.",
+        "If you have any other questions, you can also reach out directly.",
+        "",
+        "🤖 AI Crishna shutting down... Enjoy browsing the portfolio! 👋"
+    ]}
 ];
+  
+  
 
 // Set gradient colors for project cards
 const gradientColors = [
@@ -309,6 +373,7 @@ export default function Home() {
                 
                 {/* Terminal Animation */}
                 <div className="w-full max-w-3xl mx-auto mt-12 mb-4 px-4 animate-fade-in-up" style={{animationDelay: '700ms'}}>
+                    <div className="text-center mb-2 text-zinc-500 text-sm">Interactive AI Assistant Demo</div>
                     {Terminal && <Terminal commands={terminalCommands} />}
                 </div>
 

@@ -42,7 +42,7 @@ export default function FloatingIcons({ className = '' }: FloatingIconsProps) {
         size: Math.random() * 30 + 20,
         speed: Math.random() * 0.3 + 0.1,
         direction: Math.random() > 0.5 ? 1 : -1,
-        opacity: Math.random() * 0.4 + 0.1
+        opacity: Math.random() * 0.3 + 0.2
       };
     });
     

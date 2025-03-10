@@ -17,9 +17,9 @@ import {
 import { DiJava } from "react-icons/di";
 import { FaBrain, FaDatabase, FaServer, FaCode, FaMobile, FaRobot } from "react-icons/fa";
 import { BsDatabaseCheck } from "react-icons/bs";
-import SkillsSection from './components/SkillsSection';
 import SectionHeader from './components/SectionHeader';
-import DomainCard from './components/DomainCard';
+import GitHubContributions from "./components/GitHubContributions";
+import DomainExpertise from './components/DomainExpertise';
 
 // Dynamically import components that need to be client-side only
 const Terminal = dynamic(() => import('./Terminal'), { ssr: false });
@@ -47,50 +47,50 @@ const socialLinks = [
     { name: "Twitter", href: "https://twitter.com/crishnak", icon: FaTwitter }
 ];
 
-// Development Domains with icons - updated with specific technologies
-const domains = [
+// Modified domains with string icon names instead of function components
+const domainData = [
     { 
         name: "Frontend", 
-        icon: FaCode, 
+        iconName: "FaCode",  // Use string names instead of function components
         color: "from-blue-500 to-cyan-500",
         technologies: [
-            { name: "Next.js", icon: SiNextdotjs },
-            { name: "React", icon: SiReact },
-            { name: "Vue.js", icon: SiVuedotjs }
+            { name: "Next.js", iconName: "SiNextdotjs" },
+            { name: "React", iconName: "SiReact" },
+            { name: "Vue.js", iconName: "SiVuedotjs" }
         ]
     },
     { 
         name: "Backend", 
-        icon: FaServer, 
+        iconName: "FaServer",
         color: "from-purple-500 to-indigo-500",
         technologies: [
-            { name: "Node.js", icon: SiNodedotjs },
-            { name: "Adonis.js", icon: SiAdonisjs },
-            { name: "Express.js", icon: SiExpress },
-            { name: "PostgreSQL", icon: SiPostgresql },
-            { name: "MongoDB", icon: SiMongodb }
+            { name: "Node.js", iconName: "SiNodedotjs" },
+            { name: "Adonis.js", iconName: "SiAdonisjs" },
+            { name: "Express.js", iconName: "SiExpress" },
+            { name: "PostgreSQL", iconName: "SiPostgresql" },
+            { name: "MongoDB", iconName: "SiMongodb" }
         ]
     },
     { 
         name: "Mobile", 
-        icon: FaMobile, 
+        iconName: "FaMobile",
         color: "from-amber-500 to-orange-500",
         technologies: [
-            { name: "Android", icon: SiAndroid },
-            { name: "Kotlin", icon: SiKotlin },
-            { name: "iOS/Swift", icon: SiSwift },
-            { name: "React Native", icon: FaMobile },
-            { name: "Flutter/Dart", icon: SiFlutter }
+            { name: "Android", iconName: "SiAndroid" },
+            { name: "Kotlin", iconName: "SiKotlin" },
+            { name: "iOS/Swift", iconName: "SiSwift" },
+            { name: "React Native", iconName: "FaMobile" },
+            { name: "Flutter/Dart", iconName: "SiFlutter" }
         ]
     },
     { 
         name: "AI", 
-        icon: FaBrain, 
+        iconName: "FaBrain",
         color: "from-emerald-500 to-green-500",
         technologies: [
-            { name: "LLMs", icon: SiOpenai },
-            { name: "RAG", icon: FaDatabase },
-            { name: "Vector DB", icon: BsDatabaseCheck }
+            { name: "LLMs", iconName: "SiOpenai" },
+            { name: "RAG", iconName: "FaDatabase" },
+            { name: "Vector DB", iconName: "BsDatabaseCheck" }
         ]
     }
 ];
@@ -402,23 +402,8 @@ export default function Home() {
                 </div> */}
             </section>
             
-            {/* Development Domains */}
-            <section id="about" className="w-full py-16 md:py-20 px-4">
-                <div className="max-w-5xl mx-auto">
-                    <SectionHeader 
-                        title="Development Domains" 
-                        subtitle="I specialize in building full-stack applications across multiple platforms" 
-                    />
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                        {domains.map((domain, idx) => (
-                            <ScrollReveal key={idx} delay={idx * 100}>
-                                <DomainCard domain={domain} />
-                            </ScrollReveal>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* Combined Development Domains and Technical Expertise */}
+            <DomainExpertise domains={domainData} skills={skills} />
             
             {/* Featured Projects Section */}
             <section id="projects" className="w-full py-16 md:py-20 px-4 bg-gradient-to-b from-zinc-900/0 to-zinc-900/30">
@@ -486,8 +471,25 @@ export default function Home() {
                 </div>
             </section>
             
-            {/* Skills Section - Updated with component */}
-            <SkillsSection skills={skills} />
+            {/* GitHub Contributions Chart */}
+            <section className="w-full py-16 md:py-20 px-4 bg-gradient-to-b from-zinc-900/30 to-black">
+                <div className="max-w-4xl mx-auto">
+                    <SectionHeader
+                        title="My Coding Activity"
+                        subtitle="GitHub contributions over the last year"
+                        icon={<FaGithub />}
+                        className="mb-8"
+                    />
+                    
+                    <ScrollReveal>
+                        <GitHubContributions 
+                            username="krishnakorukanti" 
+                            token={process.env.NEXT_PUBLIC_GITHUB_TOKEN}
+                            theme="standard" // or "blue"
+                        />
+                    </ScrollReveal>
+                </div>
+            </section>
             
             {/* Contact Section */}
             <section id="contact" className="w-full py-16 md:py-20 px-4 bg-gradient-to-t from-black to-zinc-900/30">

@@ -1,8 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { FaReact, FaNodeJs, FaPython, FaJava, FaSwift, FaDocker, FaAws, FaGoogle } from 'react-icons/fa';
-import { SiTailwindcss, SiTypescript, SiNextdotjs, SiMongodb, SiPostgresql, SiGraphql, SiTensorflow } from 'react-icons/si';
+import { 
+  FaReact, FaNodeJs, FaPython, FaJava, FaSwift, FaDocker, FaAws, FaGoogle, 
+  FaAndroid, FaApple, FaMobile, FaCode, FaServer, FaBrain, FaDatabase
+} from 'react-icons/fa';
+import { 
+  SiTailwindcss, SiTypescript, SiNextdotjs, SiMongodb, SiPostgresql, SiGraphql, SiTensorflow,
+  SiKotlin, SiFlutter, SiDart, SiVuedotjs, SiExpress, SiAdonisjs, SiOpenai,
+  SiFirebase, SiSupabase, SiVercel
+} from 'react-icons/si';
 
 type Icon = {
   icon: React.ElementType;
@@ -26,13 +33,23 @@ export default function FloatingIcons({ className = '' }: FloatingIconsProps) {
     if (typeof window === 'undefined') return;
     
     const iconComponents = [
-      FaReact, SiNextdotjs, SiTailwindcss, SiTypescript, 
-      FaNodeJs, FaPython, FaJava, SiMongodb, 
-      SiPostgresql, SiGraphql, FaSwift, FaDocker, 
-      FaAws, FaGoogle, SiTensorflow
+      // Frontend
+      FaReact, SiNextdotjs, SiTailwindcss, SiTypescript, SiVuedotjs, FaCode,
+      
+      // Backend
+      FaNodeJs, SiExpress, SiAdonisjs, FaServer, SiPostgresql, SiMongodb, SiGraphql, FaDatabase,
+      
+      // Mobile
+      FaAndroid, SiKotlin, FaApple, FaSwift, FaMobile, SiFlutter, SiDart,
+      
+      // AI & Cloud
+      FaBrain, SiTensorflow, SiOpenai, FaAws, FaGoogle, SiFirebase, SiSupabase, SiVercel,
+      
+      // Additional tech
+      FaPython, FaJava, FaDocker
     ];
     
-    // Create random icons
+    // Create random icons with original properties but keeping the expanded icon set
     const newIcons = Array.from({ length: 20 }, () => {
       const randomIcon = iconComponents[Math.floor(Math.random() * iconComponents.length)];
       return {
@@ -89,7 +106,7 @@ export default function FloatingIcons({ className = '' }: FloatingIconsProps) {
   }, []);
   
   return (
-    <div className="absolute inset-0 -z-5 opacity-20 overflow-hidden pointer-events-none">
+    <div className={`absolute inset-0 -z-5 opacity-20 overflow-hidden pointer-events-none ${className}`}>
       {icons.map((icon, index) => {
         const IconComponent = icon.icon;
         return (

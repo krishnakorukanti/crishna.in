@@ -1,9 +1,23 @@
 'use client';
 
-import { useAssistant, Message } from 'ai/react';
+// Temporarily commented out to fix build errors
+// import { useAssistant, Message } from 'ai/react';
 import { useEffect, useRef } from 'react';
 
 export default function Chat() {
+    // Temporarily disabled chat functionality
+    return (
+        <div className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-b from-zinc-900 to-zinc-800">
+            <div className="max-w-md p-8 text-center bg-zinc-800 rounded-lg shadow-lg">
+                <h1 className="mb-4 text-2xl font-bold text-white">Chat Coming Soon</h1>
+                <p className="text-zinc-300">
+                    The chat feature is currently under maintenance. Please check back later.
+                </p>
+            </div>
+        </div>
+    );
+    
+    /* Original implementation - temporarily commented out
     const { status, messages, input, submitMessage, handleInputChange } =
         useAssistant({ api: '/api/assistant' });
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -110,4 +124,5 @@ export default function Chat() {
             `}</style>
         </div>
     );
+    */
 }

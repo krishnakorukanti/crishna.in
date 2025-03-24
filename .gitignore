@@ -27,6 +27,9 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+.env.development
+.env.production
 
 # vercel
 .vercel
@@ -36,3 +39,27 @@ yarn-error.log*
 next-env.d.ts
 
 .contentlayer
+
+# IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+logs/
+*.log
+
+# Backup files
+*.bak
+*.backup
+*~

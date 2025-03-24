@@ -1,12 +1,25 @@
 {
   "name": "crishna.in",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "Krishna Korukanti's personal website and portfolio",
+  "author": "Krishna Korukanti <krishnakorukanti@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krishnakorukanti/crishna.in.git"
+  },
+  "homepage": "https://crishna.in",
+  "bugs": {
+    "url": "https://github.com/krishnakorukanti/crishna.in/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "fmt": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && eslint --fix ."
+    "fmt": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && eslint --fix .",
+    "lint": "eslint .",
+    "security": "npm audit && npx depcheck"
   },
   "dependencies": {
     "@upstash/redis": "^1.34.5",

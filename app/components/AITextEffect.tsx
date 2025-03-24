@@ -27,6 +27,11 @@ export default function AITextEffect({
   const [isLoaded, setIsLoaded] = useState(false);
   const textTimerRef = useRef<NodeJS.Timeout | null>(null);
   const previousIndices = useRef<number[]>([]);
+  
+  // Find the longest text to determine the container width
+  const longestTextLength = texts.reduce((max, text) => 
+    Math.max(max, text.length), 0
+  );
 
   // Set isLoaded to true after component mounts to ensure smooth animations
   useEffect(() => {
@@ -109,29 +114,31 @@ export default function AITextEffect({
   }, []);
 
   return (
-    <div className={`relative min-h-[1.5em] ${className}`}>
-      <motion.span 
-        className="inline-block text-gradient bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        {displayedText}
-        {isBlinking && (
-          <motion.span
-            className="inline-block w-[2px] h-[1em] bg-gradient-to-r from-blue-500 to-purple-600 ml-1 align-middle"
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 0.8, repeat: Infinity }}
-          />
-        )}
-        {isTyping && (
-          <motion.span
-            className="inline-block w-[2px] h-[1em] bg-gradient-to-r from-blue-500 to-purple-600 ml-1 align-middle"
-            animate={{ opacity: 1 }}
-          />
-        )}
-      </motion.span>
+    <div className={`relative min-h-[1.5em] ${className}`} style={{ minWidth: `${longestTextLength * 0.5}ch` }}>
+      <div className="absolute inset-0 flex items-center justify-center md:justify-start">
+        <motion.span 
+          className="inline-block text-gradient bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {displayedText}
+          {isBlinking && (
+            <motion.span
+              className="inline-block w-[2px] h-[1em] bg-gradient-to-r from-blue-500 to-purple-600 ml-1 align-middle"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+            />
+          )}
+          {isTyping && (
+            <motion.span
+              className="inline-block w-[2px] h-[1em] bg-gradient-to-r from-blue-500 to-purple-600 ml-1 align-middle"
+              animate={{ opacity: 1 }}
+            />
+          )}
+        </motion.span>
+      </div>
     </div>
   );
 } 

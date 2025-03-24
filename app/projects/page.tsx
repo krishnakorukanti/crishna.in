@@ -6,6 +6,15 @@ import { Article } from "./article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 import { FiArrowRight, FiExternalLink, FiArrowLeft } from "react-icons/fi";
+import { Metadata } from "next";
+import { constructMetadata } from "@/app/components/SEO";
+import { Breadcrumb } from "@/app/components/Breadcrumb";
+
+export const metadata: Metadata = constructMetadata({
+  title: "Projects | Crishna Korukanti",
+  description: "Explore my portfolio of web, mobile, and AI projects. From full-stack applications to mobile apps with millions of downloads.",
+  url: "https://crishna.in/projects",
+});
 
 const redis = Redis.fromEnv();
 
@@ -18,23 +27,21 @@ const gradientColors = [
   'from-indigo-500/40 to-blue-600/40',
 ];
 
-// Function to extract tags from a project description
+// Function to extract tags from a project
 const extractTags = (project: { tags?: string[], description: string }) => {
-  if (project.tags) return project.tags;
+  // First try to use the explicit tags if available
+  if (project.tags && project.tags.length > 0) {
+    return project.tags;
+  }
   
-  // Extract key technologies from description
-  const techKeywords = [
-    "React", "Next.js", "Node", "TypeScript", "JavaScript", 
-    "GraphQL", "REST", "AWS", "Firebase", "Mobile", "Web",
-    "Flutter", "Swift", "Kotlin", "AI", "ML", "OpenAI"
-  ];
+  // Fallback to extracting keywords from description
+  const commonTags = ["Web", "Mobile", "App", "AI", "API", "UI/UX", "Design", "Development"];
+  const description = project.description.toLowerCase();
   
-  // Find matches in the description
-  const foundTags = techKeywords.filter(tech => 
-    project.description.toLowerCase().includes(tech.toLowerCase())
+  const foundTags = commonTags.filter(tag => 
+    description.includes(tag.toLowerCase())
   );
   
-  // Return found tags or defaults
   return foundTags.length > 0 ? 
     foundTags : ["Web", "Development", "Software"];
 };
@@ -80,7 +87,15 @@ export default async function ProjectsPage() {
         </Link>
       </div>
       
-      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+      <div className="container mx-auto pt-6 px-6">
+        <Breadcrumb 
+          items={[
+            { label: 'Projects', href: '/projects', isCurrentPage: true }
+          ]} 
+        />
+      </div>
+      
+      <div className="px-6 pt-16 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-20 lg:pt-24">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Projects

@@ -4,7 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 3
     versioning-strategy: increase
     labels:
       - "dependencies"
@@ -14,6 +14,27 @@ updates:
     commit-message:
       prefix: "deps"
       include: "scope"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "*eslint*"
+          - "*prettier*"
+          - "*types*"
+          - "*tailwindcss*"
+          - "*postcss*"
+        update-types:
+          - "minor"
+          - "patch"
+      runtime-dependencies:
+        patterns:
+          - "react*"
+          - "framer-motion"
+          - "lucide-react"
+          - "openai"
+          - "ai"
+        update-types:
+          - "minor"
+          - "patch"
     ignore:
       # Next.js is locked to a specific version for ContentLayer compatibility
       - dependency-name: "next"

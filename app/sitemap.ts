@@ -41,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       return {
         url: `${SEOConstants.baseUrl}/projects/${project.slug}`,
         lastModified: project.date ? new Date(project.date) : new Date(),
-        changeFrequency: isRecent ? 'weekly' : 'monthly' as const,
+        changeFrequency: "weekly" as const,
         priority,
       };
     });

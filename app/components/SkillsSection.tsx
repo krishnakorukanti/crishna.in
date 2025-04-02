@@ -25,31 +25,32 @@ export default function SkillsSection({ skills, children }: SkillsSectionProps) 
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
   useEffect(() => {
-    // Only run in browser
-    if (typeof window === 'undefined') return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in-up");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    // Store ref value in a variable
+    const currentRef = sectionRef.current;
     
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const skillCards = entry.target.querySelectorAll('.skill-card');
-          skillCards.forEach((card, index) => {
-            setTimeout(() => {
-              (card as HTMLElement).style.opacity = '1';
-              (card as HTMLElement).style.transform = 'translateY(0)';
-            }, 50 * index);
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentRef) {
+      const elements = currentRef.querySelectorAll(".skill-item");
+      elements.forEach((el) => observer.observe(el));
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        const elements = currentRef.querySelectorAll(".skill-item");
+        elements.forEach((el) => observer.unobserve(el));
       }
     };
   }, []);

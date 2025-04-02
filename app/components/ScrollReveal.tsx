@@ -19,29 +19,32 @@ export default function ScrollReveal({
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement;
-          setTimeout(() => {
-            target.style.opacity = '1';
-            target.style.transform = 'translateY(0) translateX(0)';
-          }, delay);
-          observer.unobserve(target);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in-up");
+            observer.unobserve(entry.target);
+          }
+        });
       },
-      { threshold }
+      {
+        threshold: 0.1,
+      }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    // Store ref value in a variable
+    const currentRef = ref.current;
+    
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
-  }, [threshold, delay]);
+  }, []);
 
   // Set initial style based on direction
   let initialStyle = {

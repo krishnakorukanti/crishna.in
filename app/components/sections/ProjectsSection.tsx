@@ -44,7 +44,7 @@ export default async function ProjectsSection({
         const bViews = views[b.slug] ?? 0;
         return bViews - aViews;
       })
-    : featuredSlugs.map(slug => allPublishedProjects.find(p => p.slug === slug)).filter(Boolean);
+    : featuredSlugs.map(slug => allPublishedProjects.find(p => p.slug === slug)).filter((p): p is typeof allPublishedProjects[number] => !!p);
   
   return (
     <section id="projects" className="w-full min-h-screen flex flex-col items-center justify-center relative px-4 py-24 overflow-hidden">

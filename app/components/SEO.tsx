@@ -50,7 +50,7 @@ export function constructMetadata({
       url: url,
       siteName: SEOConstants.names.siteName,
       locale: 'en_US',
-      type: openGraph?.type || 'website',
+      type: "website" as const,
       images: [
         {
           url: ogImage,
@@ -59,10 +59,10 @@ export function constructMetadata({
           alt: title,
         },
       ],
-      publishedTime: openGraph?.publishedTime,
-      modifiedTime: openGraph?.modifiedTime,
-      authors: openGraph?.authors || [SEOConstants.names.primary],
-      tags: openGraph?.tags,
+      ...(openGraph?.publishedTime && { article: { publishedTime: openGraph.publishedTime } }),
+      ...(openGraph?.modifiedTime && { article: { modifiedTime: openGraph.modifiedTime } }),
+      ...(authors && { article: { authors } }),
+      ...(openGraph?.tags && { article: { tags: openGraph.tags } }),
     },
     twitter: {
       card: 'summary_large_image',

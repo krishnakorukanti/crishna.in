@@ -42,6 +42,14 @@ export const Project = defineDocumentType(() => ({
 		repository: {
 			type: "string",
 		},
+		previewImage: {
+			type: "string",
+			description: "URL or path to the project preview image"
+		},
+		emoji: {
+			type: "string",
+			description: "Emoji to represent the project"
+		},
 		tags: {
 			type: "list",
 			of: { type: "string" },

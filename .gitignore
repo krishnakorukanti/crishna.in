@@ -63,3 +63,9 @@ logs/
 *.bak
 *.backup
 *~
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

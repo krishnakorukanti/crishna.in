@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SEO as SEOConstants } from '../constants/seo';
 
 interface SEOProps {
   title?: string;
@@ -6,31 +7,50 @@ interface SEOProps {
   url?: string;
   ogImage?: string;
   noIndex?: boolean;
+  keywords?: string;
+  authors?: Array<{ name: string }>;
+  openGraph?: {
+    type?: string;
+    publishedTime?: string;
+    modifiedTime?: string;
+    authors?: string[];
+    tags?: string[];
+  };
 }
 
-export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://crishna.in';
-
 export function constructMetadata({
-  title = 'Crishna Korukanti',
-  description = 'Personal website and portfolio of Crishna Korukanti - Developer, designer, and creator.',
-  url = baseUrl,
-  ogImage = `${baseUrl}/og-image.png`,
+  title = SEOConstants.names.primary,
+  description = SEOConstants.defaultDescription,
+  url = SEOConstants.baseUrl,
+  ogImage = `${SEOConstants.baseUrl}/og-image.png`,
   noIndex = false,
+  keywords,
+  authors,
+  openGraph,
 }: SEOProps = {}): Metadata {
+  // Combine default keywords with page-specific keywords
+  const allKeywords = [
+    ...SEOConstants.keywords,
+    ...(keywords ? keywords.split(', ') : []),
+    ...SEOConstants.names.variations
+  ].join(', ');
+
   return {
     title: title,
     description: description,
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(SEOConstants.baseUrl),
     alternates: {
       canonical: url,
     },
+    keywords: allKeywords,
+    authors: authors || [{ name: SEOConstants.names.primary }],
     openGraph: {
       title: title,
       description: description,
       url: url,
-      siteName: 'Crishna Korukanti',
+      siteName: SEOConstants.names.siteName,
       locale: 'en_US',
-      type: 'website',
+      type: openGraph?.type || 'website',
       images: [
         {
           url: ogImage,
@@ -39,13 +59,17 @@ export function constructMetadata({
           alt: title,
         },
       ],
+      publishedTime: openGraph?.publishedTime,
+      modifiedTime: openGraph?.modifiedTime,
+      authors: openGraph?.authors || [SEOConstants.names.primary],
+      tags: openGraph?.tags,
     },
     twitter: {
       card: 'summary_large_image',
       title: title,
       description: description,
       images: [ogImage],
-      creator: '@crishna',
+      creator: SEOConstants.names.twitter,
     },
     robots: {
       index: !noIndex,

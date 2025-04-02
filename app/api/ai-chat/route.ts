@@ -82,7 +82,7 @@ CONTACT INFORMATION:
 - Email: Available through the contact form on the website
 - LinkedIn: linkedin.com/in/krishnakorukanti
 - GitHub: github.com/krishnakorukanti
-- Twitter: @crishnak
+- Twitter: @crishna_k
 
 WHAT MAKES KRISHNA UNIQUE:
 - Interdisciplinary approach - combining technical precision with creative problem-solving (like a tech Renaissance man)

@@ -15,7 +15,6 @@ import ProjectsSection from "./components/sections/ProjectsSection";
 import GitHubSection from "./components/sections/GitHubSection";
 import ContactSection from "./components/sections/ContactSection";
 import FooterSection from "./components/sections/FooterSection";
-import { Project } from "./components/sections/ProjectsSection";
 import dynamic from "next/dynamic";
 
 // Define dynamic components
@@ -80,7 +79,7 @@ export default async function Home() {
     // Get featured projects from the actual project content
     const getFeaturedProjects = () => {
         // Get projects by specific slugs or select top 3 published projects
-        const featuredSlugs = ["soleilspace.com", "perc", "survey-heart-android"];
+        const featuredSlugs = ["letmedoit", "survey-heart-android", "soleilspace.com"];
         
         // Get specific projects if they exist, otherwise get first 3 published projects
         let featuredProjects = featuredSlugs
@@ -102,9 +101,9 @@ export default async function Home() {
     
     // Project emoji mapping based on slug
     const projectEmojis: Record<string, string> = {
-        "soleilspace.com": "🌞", // Sun for Soleil Space
-        "perc": "🧠", // Brain for Perc (AI/ML project)
+        "letmedoit": "🤝", // Helping hands for LetMeDoIt
         "survey-heart-android": "📱", // Mobile for Android app
+        "soleilspace.com": "🌞", // Sun for Soleil Space
         // Add more mappings as needed with appropriate emojis
     };
     
@@ -216,7 +215,7 @@ export default async function Home() {
             <ExpertiseSection />
             
             {/* Projects Section */}
-            <ProjectsSection projects={contentProjects} />
+            <ProjectsSection featuredSlugs={["letmedoit", "survey-heart-android", "soleilspace.com"]} />
             
             {/* GitHub Section */}
             <GitHubSection />

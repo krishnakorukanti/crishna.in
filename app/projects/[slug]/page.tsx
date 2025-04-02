@@ -14,6 +14,7 @@ import { BlogPostingJsonLd } from "@/app/components/JsonLd";
 // import { SocialShare } from "@/app/components/SocialShare";
 // Temporarily removing TableOfContents to fix build errors
 // import dynamic from "next/dynamic";
+import { SEO as SEOConstants } from '@/app/constants/seo';
 
 // Temporarily removing TableOfContents to fix build errors
 // const TableOfContents = dynamic(
@@ -54,13 +55,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Extract tags for keywords
   const tags = project.tags || [];
-  const keywordsString = [...tags, "project", "Crishna Korukanti", "portfolio"].join(", ");
+  const projectKeywords = [
+    ...tags,
+    "project",
+    ...SEOConstants.names.variations,
+    "portfolio",
+    "software development",
+    project.title
+  ].join(", ");
+
+  // Create a more detailed description
+  const detailedDescription = `${project.description} A project by ${SEOConstants.names.primary} built with ${tags.join(", ")}. View the full project details, source code, and implementation.`;
 
   return constructMetadata({
-    title: project.title,
-    description: project.description,
-    url: `https://crishna.in/projects/${project.slug}`,
-    ogImage: `https://crishna.in/og-image.png`,
+    title: `${project.title} | ${SEOConstants.names.primary}`,
+    description: detailedDescription,
+    url: `${SEOConstants.baseUrl}/projects/${project.slug}`,
+    ogImage: project.previewImage || `${SEOConstants.baseUrl}/og-image.png`,
+    keywords: projectKeywords,
+    authors: [{ name: SEOConstants.names.primary }],
+    openGraph: {
+      type: "article",
+      publishedTime: project.date,
+      modifiedTime: project.date,
+      authors: [SEOConstants.names.primary],
+      tags: [...tags, "project", "portfolio", "software development"],
+    },
   });
 }
 

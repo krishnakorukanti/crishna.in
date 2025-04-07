@@ -28,8 +28,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(next@13.5.11(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       ai:
-        specifier: ^4.1.63
-        version: 4.2.10(react@18.3.1)(zod@3.24.2)
+        specifier: ^4.3.2
+        version: 4.3.2(react@18.3.1)(zod@3.24.2)
       contentlayer:
         specifier: ^0.3.4
         version: 0.3.4(esbuild@0.18.20)(markdown-wasm@1.2.0)
@@ -40,8 +40,8 @@ importers:
         specifier: ^10.18.0
         version: 10.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       lucide-react:
-        specifier: ^0.359.0
-        version: 0.359.0(react@18.3.1)
+        specifier: ^0.487.0
+        version: 0.487.0(react@18.3.1)
       markdown-wasm:
         specifier: ^1.2.0
         version: 1.2.0
@@ -52,8 +52,8 @@ importers:
         specifier: ^0.3.4
         version: 0.3.4(contentlayer@0.3.4(esbuild@0.18.20)(markdown-wasm@1.2.0))(esbuild@0.18.20)(markdown-wasm@1.2.0)(next@13.5.11(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       openai:
-        specifier: ^4.89.0
-        version: 4.91.1(encoding@0.1.13)(zod@3.24.2)
+        specifier: ^4.92.0
+        version: 4.92.0(encoding@0.1.13)(zod@3.24.2)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -145,8 +145,8 @@ importers:
 
 packages:
 
-  '@ai-sdk/provider-utils@2.2.3':
-    resolution: {integrity: sha512-o3fWTzkxzI5Af7U7y794MZkYNEsxbjLam2nxyoUZSScqkacb7vZ3EYHLh21+xCcSSzEC161C7pZAGHtC0hTUMw==}
+  '@ai-sdk/provider-utils@2.2.4':
+    resolution: {integrity: sha512-13sEGBxB6kgaMPGOgCLYibF6r8iv8mgjhuToFrOTU09bBxbFQd8ZoARarCfJN6VomCUbUvMKwjTBLb1vQnN+WA==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.23.8
@@ -155,8 +155,8 @@ packages:
     resolution: {integrity: sha512-0M+qjp+clUD0R1E5eWQFhxEvWLNaOtGQRUaBn8CUABnSKredagq92hUS9VjOzGsTm37xLfpaxl97AVtbeOsHew==}
     engines: {node: '>=18'}
 
-  '@ai-sdk/react@1.2.5':
-    resolution: {integrity: sha512-0jOop3S2WkDOdO4X5I+5fTGqZlNX8/h1T1eYokpkR9xh8Vmrxqw8SsovqGvrddTsZykH8uXRsvI+G4FTyy894A==}
+  '@ai-sdk/react@1.2.6':
+    resolution: {integrity: sha512-5BFChNbcYtcY9MBStcDev7WZRHf0NpTrk8yfSoedWctB3jfWkFd1HECBvdc8w3mUQshF2MumLHtAhRO7IFtGGQ==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
@@ -165,8 +165,8 @@ packages:
       zod:
         optional: true
 
-  '@ai-sdk/ui-utils@1.2.4':
-    resolution: {integrity: sha512-wLTxEZrKZRyBmlVZv8nGXgLBg5tASlqXwbuhoDu0MhZa467ZFREEnosH/OC/novyEHTQXko2zC606xoVbMrUcA==}
+  '@ai-sdk/ui-utils@1.2.5':
+    resolution: {integrity: sha512-XDgqnJcaCkDez7qolvk+PDbs/ceJvgkNkxkOlc9uDWqxfDJxtvCZ+14MP/1qr4IBwGIgKVHzMDYDXvqVhSWLzg==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.23.8
@@ -1106,8 +1106,8 @@ packages:
     resolution: {integrity: sha512-kja8j7PjmncONqaTsB8fQ+wE2mSU2DJ9D4XKoJ5PFWIdRMa6SLSN1ff4mOr4jCbfRSsxR4keIiySJU0N9T5hIQ==}
     engines: {node: '>= 8.0.0'}
 
-  ai@4.2.10:
-    resolution: {integrity: sha512-rOfKbNRWlzwxbFll6W9oAdnC0R5VVbAJoof+p92CatHzA3reqQZmYn33IBnj+CgqeXYUsH9KX9Wnj7g2wCHc9Q==}
+  ai@4.3.2:
+    resolution: {integrity: sha512-h643SfhKil0Pnxk2tVIazFDL1JevutUghvc3mOpWqJFMcudmgtwQYlvxCkwSfljrrq+qIfne8d6jCihMMhM7pw==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
@@ -2285,10 +2285,10 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  lucide-react@0.359.0:
-    resolution: {integrity: sha512-bxVL+rM/wacjpT0BKShA6r5IIKb6LCRg+ltFG9pnnIwaRX8kK3hq8v5JwMpT7RC6XeqB5cSaaV6GapPWWmtliw==}
+  lucide-react@0.487.0:
+    resolution: {integrity: sha512-aKqhOQ+YmFnwq8dWgGjOuLc8V1R9/c/yOd+zDY4+ohsR2Jo05lSGc3WsstYPIzcTpeosN7LoCkLReUUITvaIvw==}
     peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   make-error@1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
@@ -2657,8 +2657,8 @@ packages:
     resolution: {integrity: sha512-g33AbSedFq555wCEOKLZ5d2KjW/f0ApMlgn4/PlzYS76QawOcdhOaolZavMJioHn9Vv15TPbloEoYWStyGAoxw==}
     engines: {node: '>= 14.17.0'}
 
-  openai@4.91.1:
-    resolution: {integrity: sha512-DbjrR0hIMQFbxz8+3qBsfPJnh3+I/skPgoSlT7f9eiZuhGBUissPQULNgx6gHNkLoZ3uS0uYS6eXPUdtg4nHzw==}
+  openai@4.92.0:
+    resolution: {integrity: sha512-vLIBP8gygD5M7XIrdBkUFKnfEq3EmaI+lmGjDDAmjahzmdhwdpzDA+GBA4ZZwj7rgu1WMNh9/SqyTysxMulC2g==}
     hasBin: true
     peerDependencies:
       ws: ^8.18.0
@@ -3490,7 +3490,7 @@ packages:
 
 snapshots:
 
-  '@ai-sdk/provider-utils@2.2.3(zod@3.24.2)':
+  '@ai-sdk/provider-utils@2.2.4(zod@3.24.2)':
     dependencies:
       '@ai-sdk/provider': 1.1.0
       nanoid: 3.3.11
@@ -3501,20 +3501,20 @@ snapshots:
     dependencies:
       json-schema: 0.4.0
 
-  '@ai-sdk/react@1.2.5(react@18.3.1)(zod@3.24.2)':
+  '@ai-sdk/react@1.2.6(react@18.3.1)(zod@3.24.2)':
     dependencies:
-      '@ai-sdk/provider-utils': 2.2.3(zod@3.24.2)
-      '@ai-sdk/ui-utils': 1.2.4(zod@3.24.2)
+      '@ai-sdk/provider-utils': 2.2.4(zod@3.24.2)
+      '@ai-sdk/ui-utils': 1.2.5(zod@3.24.2)
       react: 18.3.1
       swr: 2.3.3(react@18.3.1)
       throttleit: 2.1.0
     optionalDependencies:
       zod: 3.24.2
 
-  '@ai-sdk/ui-utils@1.2.4(zod@3.24.2)':
+  '@ai-sdk/ui-utils@1.2.5(zod@3.24.2)':
     dependencies:
       '@ai-sdk/provider': 1.1.0
-      '@ai-sdk/provider-utils': 2.2.3(zod@3.24.2)
+      '@ai-sdk/provider-utils': 2.2.4(zod@3.24.2)
       zod: 3.24.2
       zod-to-json-schema: 3.24.5(zod@3.24.2)
 
@@ -4388,12 +4388,12 @@ snapshots:
     dependencies:
       humanize-ms: 1.2.1
 
-  ai@4.2.10(react@18.3.1)(zod@3.24.2):
+  ai@4.3.2(react@18.3.1)(zod@3.24.2):
     dependencies:
       '@ai-sdk/provider': 1.1.0
-      '@ai-sdk/provider-utils': 2.2.3(zod@3.24.2)
-      '@ai-sdk/react': 1.2.5(react@18.3.1)(zod@3.24.2)
-      '@ai-sdk/ui-utils': 1.2.4(zod@3.24.2)
+      '@ai-sdk/provider-utils': 2.2.4(zod@3.24.2)
+      '@ai-sdk/react': 1.2.6(react@18.3.1)(zod@3.24.2)
+      '@ai-sdk/ui-utils': 1.2.5(zod@3.24.2)
       '@opentelemetry/api': 1.9.0
       jsondiffpatch: 0.6.0
       zod: 3.24.2
@@ -4935,7 +4935,7 @@ snapshots:
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.10.0(eslint-plugin-import@2.31.0(eslint@8.57.1))(eslint@8.57.1)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.2))(eslint-import-resolver-typescript@3.10.0(eslint-plugin-import@2.31.0(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.2))(eslint-import-resolver-typescript@3.10.0)(eslint@8.57.1)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.57.1)
       eslint-plugin-react: 7.37.4(eslint@8.57.1)
       eslint-plugin-react-hooks: 5.0.0-canary-7118f5dd7-20230705(eslint@8.57.1)
@@ -4969,7 +4969,7 @@ snapshots:
       tinyglobby: 0.2.12
       unrs-resolver: 1.3.3
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.2))(eslint-import-resolver-typescript@3.10.0(eslint-plugin-import@2.31.0(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.2))(eslint-import-resolver-typescript@3.10.0)(eslint@8.57.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -4984,7 +4984,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.2))(eslint-import-resolver-typescript@3.10.0(eslint-plugin-import@2.31.0(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.8.2))(eslint-import-resolver-typescript@3.10.0)(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -5819,7 +5819,7 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
-  lucide-react@0.359.0(react@18.3.1):
+  lucide-react@0.487.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
@@ -6480,7 +6480,7 @@ snapshots:
 
   oo-ascii-tree@1.110.0: {}
 
-  openai@4.91.1(encoding@0.1.13)(zod@3.24.2):
+  openai@4.92.0(encoding@0.1.13)(zod@3.24.2):
     dependencies:
       '@types/node': 18.19.86
       '@types/node-fetch': 2.6.12

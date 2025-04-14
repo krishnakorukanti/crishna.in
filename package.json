@@ -58,7 +58,7 @@
     "esbuild": "^0.18.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "^13.5.8",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.1.2",
     "postcss": "^8.5.3",
     "postcss-nesting": "^12.1.5",
     "prettier": "^3.5.3",

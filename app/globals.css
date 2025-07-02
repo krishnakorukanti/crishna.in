@@ -1,3 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-silkscreen: 'Silkscreen', 'Orbitron', 'Courier New', monospace;
+}
+
 @keyframes bounce-slow {
   0%, 100% {
     transform: translateY(0);

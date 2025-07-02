@@ -22,13 +22,16 @@ A modern, responsive portfolio website and blog for Crishna Korukanti showcasing
 
 ## 🚀 Tech Stack
 
-- **Framework**: [Next.js 13.5](https://nextjs.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Content**: [ContentLayer](https://contentlayer.dev/)
-- **Deployment**: [Vercel](https://vercel.com)
-- **Analytics**: Vercel Analytics
-- **AI Features**: OpenAI API integration
-- **Data Storage**: Upstash Redis
+- **Framework**: [Next.js 15.3](https://nextjs.org/) - Latest stable version
+- **Frontend**: [React 19.1](https://react.dev/) - Latest with enhanced performance
+- **Styling**: [Tailwind CSS 4.x](https://tailwindcss.com/) - Latest major version
+- **3D Graphics**: [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) - 3D scenes and animations
+- **Content**: [ContentLayer](https://contentlayer.dev/) - Markdown-based content management
+- **Animations**: [Framer Motion 12.x](https://www.framer.com/motion/) - Smooth interactions
+- **Deployment**: [Vercel](https://vercel.com) - Optimized hosting
+- **Analytics**: Vercel Analytics - Performance tracking
+- **AI Features**: OpenAI API integration - Intelligent chat assistant
+- **Data Storage**: Upstash Redis - Fast data caching
 
 ## 📦 Project Structure
 
@@ -54,9 +57,13 @@ The project has been updated to use compatible versions of all dependencies:
   - `rome` replaced with ESLint and Prettier
 - All dependencies updated to their latest compatible versions
 
-## 🔍 Note on Next.js Version
+## 🚀 Latest Technology Stack
 
-This project currently uses Next.js 13.5.8 instead of Next.js 15+ due to compatibility requirements with ContentLayer. We'll upgrade to Next.js 15+ once ContentLayer adds support for it.
+This project has been successfully upgraded to the latest versions:
+- **Next.js 15.3.4** - Latest stable version with ContentLayer support
+- **React 19.1.0** - Latest version with improved performance
+- **Tailwind CSS 4.x** - Latest major version with enhanced features
+- **React Three Fiber** - For stunning 3D visual effects
 
 ## 🛠️ Running Locally
 

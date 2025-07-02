@@ -15,6 +15,109 @@
   }
 }
 
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(240deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(10px) translateY(-15px) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-5px) translateY(-10px) rotate(180deg);
+  }
+  75% {
+    transform: translateX(-15px) translateY(5px) rotate(270deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(360deg);
+  }
+}
+
 .animate-bounce-slow {
   animation: bounce-slow 2s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-particle-drift {
+  animation: particle-drift 15s ease-in-out infinite;
+}
+
+/* Custom gradient utilities for space effects */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+.bg-gradient-conic {
+  background: conic-gradient(var(--tw-gradient-stops));
+}
+
+/* 3D Transform utilities */
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Space particle effects */
+.particle-icon {
+  animation: float 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.particle-dot {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Space background effects */
+.space-bg {
+  background: radial-gradient(ellipse at center, 
+    rgba(59, 130, 246, 0.15) 0%, 
+    rgba(139, 92, 246, 0.1) 25%, 
+    rgba(0, 0, 0, 0.8) 70%, 
+    rgba(0, 0, 0, 1) 100%);
 } 

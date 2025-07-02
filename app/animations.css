@@ -134,7 +134,7 @@
 
 .terminal-wrapper:hover .terminal-glow {
   opacity: 0.15;
-}
+} 
 
 /* 3D Hero Section Animations */
 @keyframes fade-in-up {

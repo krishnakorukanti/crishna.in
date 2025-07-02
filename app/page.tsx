@@ -86,12 +86,12 @@ export default function Home() {
       <div className="flex flex-col items-center w-screen min-h-screen overflow-x-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
         {/* Background Particles */}
         <Particles
-          className="absolute inset-0 -z-10 animate-fade-in"
-          quantity={100}
+          className="absolute inset-0 z-0 animate-fade-in"
+          quantity={800}
         />
         
         {/* Main Content */}
-        <main className="w-full">
+        <main className="w-full relative z-10">
           <HeroSection 
             aiDescriptions={aiDescriptions}
             socialLinks={socialLinks}

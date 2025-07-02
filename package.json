@@ -32,7 +32,7 @@
     "ai": "^4.3.16",
     "contentlayer": "^0.3.4",
     "encoding": "^0.1.13",
-    "framer-motion": "^12.19.3",
+    "framer-motion": "^12.23.0",
     "lucide-react": "^0.525.0",
     "markdown-wasm": "^1.2.0",
     "next": "^15.3.4",

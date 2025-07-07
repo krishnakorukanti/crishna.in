@@ -1,12 +1,20 @@
 // @ts-nocheck
+"use client";
+
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
+// Ensure React is available globally for MDX compilation
+if (typeof window !== 'undefined') {
+  (window as any).React = React;
+}
+
 function clsx(...args: any) {
 	return args.filter(Boolean).join(" ");
 }
+
 const components = {
 	h1: ({ className, ...props }) => (
 		<h1
@@ -167,12 +175,55 @@ interface MdxProps {
 	code: string;
 }
 
-export function Mdx({ code }: MdxProps) {
-	const Component = useMDXComponent(code);
+class ErrorBoundary extends React.Component<
+	{ children: React.ReactNode },
+	{ hasError: boolean }
+> {
+	constructor(props: { children: React.ReactNode }) {
+		super(props);
+		this.state = { hasError: false };
+	}
 
-	return (
-		<div className="mdx">
-			<Component components={components} />
-		</div>
-	);
+	static getDerivedStateFromError(error: Error) {
+		return { hasError: true };
+	}
+
+	componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+		console.error('MDX Error:', error, errorInfo);
+	}
+
+	render() {
+		if (this.state.hasError) {
+			return (
+				<div className="p-4 border border-red-600 rounded-lg bg-red-50">
+					<h2 className="text-red-800 font-semibold mb-2">Content Loading Error</h2>
+					<p className="text-red-700">There was an issue loading this content. Please refresh the page or contact support if the issue persists.</p>
+				</div>
+			);
+		}
+
+		return this.props.children;
+	}
+}
+
+export function Mdx({ code }: MdxProps) {
+	try {
+		const Component = useMDXComponent(code);
+
+		return (
+			<ErrorBoundary>
+				<div className="mdx">
+					<Component components={components} />
+				</div>
+			</ErrorBoundary>
+		);
+	} catch (error) {
+		console.error('MDX Compilation Error:', error);
+		return (
+			<div className="p-4 border border-orange-600 rounded-lg bg-orange-50">
+				<h2 className="text-orange-800 font-semibold mb-2">Content Error</h2>
+				<p className="text-orange-700">Unable to render this content due to a compilation error.</p>
+			</div>
+		);
+	}
 }

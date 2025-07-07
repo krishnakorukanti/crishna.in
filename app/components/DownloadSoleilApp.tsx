@@ -37,22 +37,6 @@ const DownloadAppContainer: React.FC<DownloadAppContainerProps> = (props) => (
     </div>
 );
 
-interface AppstoreIconContainerProps {
-    src: string;
-    alt: string;
-}
 
-const AppstoreIconContainer: React.FC<AppstoreIconContainerProps> = (props) => (
-    <img style={{ width: '100%', maxWidth: '180px' }} src={props.src} alt={props.alt} />
-);
-
-interface PlayStoreIconContainerProps {
-    src: string;
-    alt: string;
-}
-
-const PlayStoreIconContainer: React.FC<PlayStoreIconContainerProps> = (props) => (
-    <img style={{ width: '100%', maxWidth: '203px' }} src={props.src} alt={props.alt} />
-);
 
 export default DownloadSoleilApp;

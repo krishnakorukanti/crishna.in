@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
-import { Mdx } from "@/app/components/mdx";
+import { ContentRenderer } from "@/app/components/ContentRenderer";
 import { Header } from "./header";
 import "./mdx.css";
 // Commenting out components that may have event handler issues
@@ -25,14 +26,14 @@ import { SEO as SEOConstants } from '@/app/constants/seo';
 export const revalidate = 60;
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const redis = Redis.fromEnv();
 
-export async function generateStaticParams(): Promise<Props["params"][]> {
+export async function generateStaticParams(): Promise<{slug: string}[]> {
   return allProjects
     .filter((p) => p.published)
     .map((p) => ({
@@ -42,7 +43,8 @@ export async function generateStaticParams(): Promise<Props["params"][]> {
 
 // Generate dynamic metadata for each project page
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params?.slug;
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug;
   const project = allProjects.find((project) => project.slug === slug);
 
   if (!project) {
@@ -85,7 +87,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PostPage({ params }: Props) {
-  const slug = params?.slug;
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug;
   const project = allProjects.find((project) => project.slug === slug);
 
   if (!project) {
@@ -123,12 +126,12 @@ export default async function PostPage({ params }: Props) {
       
       {/* Temporarily removed Breadcrumb component */}
       <div className="px-4 py-6 max-w-4xl mx-auto">
-        <a 
+        <Link 
           href="/projects"
           className="text-zinc-400 hover:text-zinc-200 transition-colors"
         >
           ← Back to Projects
-        </a>
+        </Link>
         <h1 className="text-3xl font-bold text-white mt-4">{project.title}</h1>
       </div>
       
@@ -138,7 +141,7 @@ export default async function PostPage({ params }: Props) {
 
       <article className="px-4 py-12 mx-auto prose prose-zinc prose-quoteless max-w-4xl">
         <div className="bg-zinc-900/40 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-zinc-800 relative overflow-hidden">
-          <Mdx code={project.body.code} />
+          <ContentRenderer project={project} />
         </div>
       </article>
       
@@ -159,12 +162,12 @@ export default async function PostPage({ params }: Props) {
           <h3 className="text-xl font-semibold text-zinc-200 mb-4">Related Projects</h3>
           <p className="text-zinc-400">Check out other projects in the main projects section.</p>
           <div className="mt-4">
-            <a 
+            <Link 
               href="/projects" 
               className="inline-block px-4 py-2 bg-zinc-800 text-zinc-200 rounded-md"
             >
               View All Projects
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -105,7 +105,7 @@ export default function AITextEffect({
         }
       }
     }
-  }, [displayedText, currentTextIndex, isTyping, texts, typeSpeed, delayBetweenTexts, random, immediateTransition, isLoaded]);
+  }, [displayedText, currentTextIndex, isTyping, texts, typeSpeed, delayBetweenTexts, random, immediateTransition, isLoaded, getNextTextIndex]);
 
   useEffect(() => {
     return () => {

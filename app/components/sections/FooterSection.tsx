@@ -22,7 +22,7 @@ export default function FooterSection({ navigation }: FooterSectionProps) {
               Crishna K.
             </Link>
             <p className="text-zinc-400 mt-2">
-              Software Engineer & UI/UX Enthusiast
+              Dev
             </p>
           </div>
           
@@ -41,10 +41,10 @@ export default function FooterSection({ navigation }: FooterSectionProps) {
         
         <div className="mt-10 pt-6 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center text-zinc-500 text-sm">
           <p>
-            © {currentYear} Crishna Korukanti. All rights reserved.
+            Made with Love ❤️ 
           </p>
           
-          <div className="mt-4 md:mt-0 flex gap-6">
+          {/* <div className="mt-4 md:mt-0 flex gap-6">
             <Link href="/privacy" className="hover:text-zinc-300 transition-colors duration-300">
               Privacy Policy
             </Link>
@@ -54,7 +54,7 @@ export default function FooterSection({ navigation }: FooterSectionProps) {
             <Link href="/dashboard" className="hover:text-zinc-300 transition-colors duration-300">
               SEO Dashboard
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

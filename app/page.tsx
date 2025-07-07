@@ -97,7 +97,7 @@ export default function Home() {
             socialLinks={socialLinks}
           />
           
-          <TerminalSection commands={commands} />
+          {/* <TerminalSection commands={commands} /> */}
           
           <AboutSection />
           
@@ -105,9 +105,9 @@ export default function Home() {
           
           <ProjectsSection />
           
-          <GitHubSection />
+          {/* <GitHubSection /> */}
           
-          <ContactSection />
+          {/* <ContactSection /> */}
         </main>
         
         {/* Footer */}

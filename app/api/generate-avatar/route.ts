@@ -34,6 +34,14 @@ export async function POST(request: Request) {
       size: "1024x1024",
     });
 
+    // Check if response data exists and has valid results
+    if (!response.data || response.data.length === 0 || !response.data[0]?.url) {
+      return NextResponse.json(
+        { error: "Failed to generate image - no valid response from OpenAI" },
+        { status: 500 }
+      );
+    }
+
     // Return the generated image URL
     return NextResponse.json({
       imageUrl: response.data[0].url,

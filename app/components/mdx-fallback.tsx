@@ -109,16 +109,20 @@ export function MdxFallback({ content, title, description }: MdxFallbackProps) {
         // Use Next.js Image for better performance when possible
         if (attributeObj.src?.startsWith('/') || attributeObj.src?.includes('localhost')) {
           return (
-            <img 
+            <Image 
               key={key}
               src={attributeObj.src}
               alt={attributeObj.alt || ''}
+              width={200}
+              height={60}
               style={attributeObj.style}
               className={attributeObj.className}
             />
           );
         }
+        // For external images, still use img tag to avoid CORS issues
         return (
+          // eslint-disable-next-line @next/next/no-img-element
           <img 
             key={key}
             src={attributeObj.src}

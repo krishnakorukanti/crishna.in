@@ -2,30 +2,16 @@
 
 import React from "react";
 import { MdxFallback } from "./mdx-fallback";
+import type { Project } from "contentlayer/generated";
 
 interface ContentRendererProps {
-  project: {
-    _raw: {
-      sourceFileDir: string;
-      sourceFileName: string;
-      sourceFilePath: string;
-      contentType: string;
-      flattenedPath: string;
-      body: string;
-    };
-    body: {
-      code: string;
-      raw?: string;
-    };
-    title: string;
-    description: string;
-  };
+  project: Project;
 }
 
 export function ContentRenderer({ project }: ContentRendererProps) {
-  // Access the raw markdown content from _raw.body which contains the original markdown
-  // before MDX compilation. This bypasses the contentlayer MDX compilation entirely.
-  const rawContent = project._raw?.body || project.body.raw || project.description;
+  // Access the raw markdown content. Try multiple sources as fallback
+  // Since _raw.body doesn't exist, use the description as content
+  const rawContent = project.body.raw || project.description;
 
   return (
     <MdxFallback 

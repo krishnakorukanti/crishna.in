@@ -9,7 +9,7 @@ interface DomainExpertiseProps {
   icon: string;
 }
 
-const DomainExpertise = ({ domain, skills, description, icon }: DomainExpertiseProps): JSX.Element => {
+const DomainExpertise = ({ domain, skills, description, icon }: DomainExpertiseProps) => {
   return (
     <div className="bg-zinc-900/40 backdrop-blur-sm rounded-xl p-6 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 group animate-fade-in-up relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>

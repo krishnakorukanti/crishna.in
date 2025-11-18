@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { allProjects } from "contentlayer/generated";
 import { ContentRenderer } from "@/app/components/ContentRenderer";
 import { Header } from "./header";
 import "./mdx.css";
@@ -16,6 +15,7 @@ import { BlogPostingJsonLd } from "@/app/components/JsonLd";
 // Temporarily removing TableOfContents to fix build errors
 // import dynamic from "next/dynamic";
 import { SEO as SEOConstants } from '@/app/constants/seo';
+import { getProjectBySlug, getPublishedProjects } from "@/lib/projects";
 
 // Temporarily removing TableOfContents to fix build errors
 // const TableOfContents = dynamic(
@@ -34,18 +34,24 @@ type Props = {
 const redis = Redis.fromEnv();
 
 export async function generateStaticParams(): Promise<{slug: string}[]> {
-  return allProjects
-    .filter((p) => p.published)
-    .map((p) => ({
-      slug: p.slug,
-    }));
+  const projects = await getPublishedProjects();
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
 // Generate dynamic metadata for each project page
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug;
-  const project = allProjects.find((project) => project.slug === slug);
+  if (!slug) {
+    return constructMetadata({
+      title: "Project Not Found",
+      description: "This project could not be found",
+      noIndex: true,
+    });
+  }
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     return constructMetadata({
@@ -89,7 +95,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PostPage({ params }: Props) {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug;
-  const project = allProjects.find((project) => project.slug === slug);
+  if (!slug) {
+    notFound();
+  }
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();
@@ -97,16 +106,6 @@ export default async function PostPage({ params }: Props) {
 
   const views =
     (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
-
-  // Get view counts for all projects for related projects component
-  const allViewsPromise = Promise.all(
-    allProjects.map(async (p) => {
-      const viewCount = await redis.get<number>(["pageviews", "projects", p.slug].join(":")) ?? 0;
-      return [p.slug, viewCount];
-    })
-  );
-  const allViewsArray = await allViewsPromise;
-  const allViews = Object.fromEntries(allViewsArray);
 
   const formattedDate = project.date 
     ? new Date(project.date).toISOString() 

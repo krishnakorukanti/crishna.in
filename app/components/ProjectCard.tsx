@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 import { Eye } from "lucide-react";
-import { allProjects } from "contentlayer/generated";
 import { Redis } from "@upstash/redis";
+import { getProjectBySlug } from "@/lib/projects";
 
 const redis = Redis.fromEnv();
 
@@ -15,7 +15,7 @@ export interface ProjectCardProps {
 }
 
 export default async function ProjectCard({ slug, className = "", views = 0 }: ProjectCardProps) {
-  const project = allProjects.find((p) => p.slug === slug);
+  const project = await getProjectBySlug(slug);
   
   if (!project) return null;
 

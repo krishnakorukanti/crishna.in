@@ -6,7 +6,7 @@ dotenv.config();
 
 const redis = Redis.fromEnv();
 
-// Sample projects to seed (since we can't import from contentlayer directly in a script)
+// Sample projects to seed (fallback list when running the JS version of the script)
 const projects = [
   { slug: "letmedoit", title: "LetMeDoIt" },
   { slug: "survey-heart-android", title: "Survey Heart Android" },

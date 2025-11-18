@@ -1,5 +1,3 @@
-import { withContentlayer } from "next-contentlayer";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
@@ -7,7 +5,15 @@ const nextConfig = {
 	experimental: {
 		mdxRs: true,
 	},
+	async rewrites() {
+		return [
+			{
+				source: "/public/persona-ai.html",
+				destination: "/pages/api/persona-ai.ts",
+			},
+		];
+	},
 };
 
 
-export default withContentlayer(nextConfig);
+export default nextConfig;

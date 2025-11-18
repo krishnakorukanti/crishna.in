@@ -1,7 +1,6 @@
 import { Redis } from "@upstash/redis";
-import { allProjects } from "contentlayer/generated";
-import type { Project } from "contentlayer/generated";
 import dotenv from "dotenv";
+import { getPublishedProjects } from "@/lib/projects";
 
 dotenv.config();
 
@@ -9,7 +8,7 @@ const redis = Redis.fromEnv();
 
 async function main() {
   // Projects to seed views for
-  const projects = allProjects.filter((p: Project) => p.published === true);
+  const projects = await getPublishedProjects();
 
   console.log(`Found ${projects.length} published projects to seed views for...`);
 
@@ -17,7 +16,7 @@ async function main() {
   for (const project of projects) {
     const randomViews = Math.floor(Math.random() * 9900) + 100;
     try {
-      await redis.set(`views:${project.slug}`, randomViews);
+      await redis.set(["pageviews", "projects", project.slug].join(":"), randomViews);
       console.log(`✅ Seeded ${randomViews} views for ${project.title}`);
     } catch (error) {
       console.error(`❌ Failed to seed views for ${project.title}:`, error);

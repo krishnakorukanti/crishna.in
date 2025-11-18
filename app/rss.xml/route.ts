@@ -1,7 +1,14 @@
-import { allProjects } from 'contentlayer/generated';
 import RSS from 'rss';
+import { getPublishedProjects } from '@/lib/projects';
 
 export async function GET() {
+  const publishedProjects = (await getPublishedProjects()).sort((a, b) => {
+    if (!a.date && !b.date) return 0;
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
   const feed = new RSS({
     title: 'Crishna Korukanti - Projects and Updates',
     description: 'Latest projects and updates from Crishna Korukanti, Software Engineer & AI Product Developer',
@@ -13,15 +20,6 @@ export async function GET() {
   });
 
   // Add projects to the feed
-  const publishedProjects = allProjects
-    .filter(project => project.published)
-    .sort((a, b) => {
-      if (!a.date && !b.date) return 0;
-      if (!a.date) return 1;
-      if (!b.date) return -1;
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-
   publishedProjects.forEach((project) => {
     feed.item({
       title: project.title,

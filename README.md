@@ -17,7 +17,7 @@ A modern, responsive portfolio website and blog for Crishna Korukanti showcasing
 - **Project Showcase**: Dynamic project cards and detailed project pages
 - **SEO Optimized**: Meta tags, JSON-LD structured data, and sitemap generation
 - **Analytics**: Built-in Vercel Analytics for visitor tracking
-- **Content Management**: Markdown-based content using ContentLayer
+- **Content Management**: Markdown-based MDX pipeline powered by filesystem data
 - **Performance Optimized**: Core Web Vitals metrics tracking and optimization
 
 ## 🚀 Tech Stack
@@ -26,7 +26,7 @@ A modern, responsive portfolio website and blog for Crishna Korukanti showcasing
 - **Frontend**: [React 19.1](https://react.dev/) - Latest with enhanced performance
 - **Styling**: [Tailwind CSS 4.x](https://tailwindcss.com/) - Latest major version
 - **3D Graphics**: [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) - 3D scenes and animations
-- **Content**: [ContentLayer](https://contentlayer.dev/) - Markdown-based content management
+- **Content**: Local MDX pipeline (gray-matter + next-mdx-remote)
 - **Animations**: [Framer Motion 12.x](https://www.framer.com/motion/) - Smooth interactions
 - **Deployment**: [Vercel](https://vercel.com) - Optimized hosting
 - **Analytics**: Vercel Analytics - Performance tracking
@@ -41,26 +41,22 @@ A modern, responsive portfolio website and blog for Crishna Korukanti showcasing
 │   ├── components/          # React components
 │   ├── projects/            # Project pages
 │   └── sections/            # Homepage sections
-├── content/                 # ContentLayer content
+├── content/                 # MDX source content (projects, pages)
 ├── public/                  # Static assets
 └── styles/                  # Global styles
 ```
 
 ## 📝 Recent Updates
 
-The project has been updated to use compatible versions of all dependencies:
-
-- Next.js set to version 13.5.8 for ContentLayer compatibility
-- Deprecated packages have been removed:
-  - `@next/font` replaced with built-in `next/font`
-  - `@tailwindcss/line-clamp` removed (now built into Tailwind CSS)
-  - `rome` replaced with ESLint and Prettier
-- All dependencies updated to their latest compatible versions
+- Replaced ContentLayer with a filesystem-driven MDX pipeline (gray-matter + next-mdx-remote) so installs work without `--legacy-peer-deps`
+- Unified the Next.js config and removed the ContentLayer plugin wrapper
+- Added a centralized `lib/projects` helper to read, normalize, and cache project metadata directly from `content/projects`
+- Project pages, RSS, sitemap, and scripts now use the new data helpers, reducing build-time coupling
 
 ## 🚀 Latest Technology Stack
 
 This project has been successfully upgraded to the latest versions:
-- **Next.js 15.3.4** - Latest stable version with ContentLayer support
+- **Next.js 15.3.4** - Latest stable version with native MDX support
 - **React 19.1.0** - Latest version with improved performance
 - **Tailwind CSS 4.x** - Latest major version with enhanced features
 - **React Three Fiber** - For stunning 3D visual effects

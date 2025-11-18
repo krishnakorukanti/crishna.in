@@ -1,23 +1,29 @@
-"use client";
-
-import React from "react";
+import { renderMdx } from "@/lib/mdx";
+import type { Project } from "@/lib/projects";
 import { MdxFallback } from "./mdx-fallback";
-import type { Project } from "contentlayer/generated";
 
 interface ContentRendererProps {
-  project: Project;
+	project: Project;
 }
 
-export function ContentRenderer({ project }: ContentRendererProps) {
-  // Access the raw markdown content. Try multiple sources as fallback
-  // Since _raw.body doesn't exist, use the description as content
-  const rawContent = project.body.raw || project.description;
+export async function ContentRenderer({ project }: ContentRendererProps) {
+	try {
+		const content = await renderMdx(project.body);
 
-  return (
-    <MdxFallback 
-      content={rawContent}
-      title={project.title}
-      description={project.description}
-    />
-  );
-} 
+		return (
+			<div className="prose prose-zinc prose-invert max-w-none">
+				{content}
+			</div>
+		);
+	} catch (error) {
+		console.error("MDX render failed", error);
+
+		return (
+			<MdxFallback
+				content={project.body || project.description}
+				title={project.title}
+				description={project.description}
+			/>
+		);
+	}
+}

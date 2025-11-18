@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 import ProjectCard from "../ProjectCard";
-import { allProjects } from "contentlayer/generated";
 import { Redis } from "@upstash/redis";
+import { getPublishedProjects } from "@/lib/projects";
 
 const redis = Redis.fromEnv();
 
@@ -12,40 +12,37 @@ interface ProjectsSectionProps {
   showAllProjects?: boolean;
 }
 
-export default async function ProjectsSection({ 
-  featuredSlugs = ["letmedoit", "survey-heart-android", "crishna.in"],
-  showAllProjects = false 
+export default async function ProjectsSection({
+	featuredSlugs = ["letmedoit", "survey-heart-android", "crishna.in"],
+	showAllProjects = false,
 }: ProjectsSectionProps) {
-  // Get all published projects
-  const allPublishedProjects = allProjects.filter(p => p.published);
-  
-  // Fetch view counts for all projects
-  const views = (
-    await redis.mget<number[]>(
-      ...allPublishedProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
-    )
-  ).reduce((acc, v, i) => {
-    acc[allPublishedProjects[i].slug] = v ?? 0;
-    return acc;
-  }, {} as Record<string, number>);
+	const allPublishedProjects = await getPublishedProjects();
 
-  // Order projects based on featured status and view count
-  const projects = showAllProjects
-    ? allPublishedProjects.sort((a, b) => {
-        // First sort by featured status
-        const aIsFeatured = featuredSlugs.includes(a.slug);
-        const bIsFeatured = featuredSlugs.includes(b.slug);
-        
-        if (aIsFeatured && !bIsFeatured) return -1;
-        if (!aIsFeatured && bIsFeatured) return 1;
-        
-        // Then sort by view count
-        const aViews = views[a.slug] ?? 0;
-        const bViews = views[b.slug] ?? 0;
-        return bViews - aViews;
-      })
-    : featuredSlugs.map(slug => allPublishedProjects.find(p => p.slug === slug)).filter((p): p is typeof allPublishedProjects[number] => !!p);
-  
+	const views = (
+		await redis.mget<number[]>(
+			...allPublishedProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
+		)
+	).reduce((acc, v, i) => {
+		acc[allPublishedProjects[i].slug] = v ?? 0;
+		return acc;
+	}, {} as Record<string, number>);
+
+	const projects = showAllProjects
+		? [...allPublishedProjects].sort((a, b) => {
+				const aIsFeatured = featuredSlugs.includes(a.slug);
+				const bIsFeatured = featuredSlugs.includes(b.slug);
+
+				if (aIsFeatured && !bIsFeatured) return -1;
+				if (!aIsFeatured && bIsFeatured) return 1;
+
+				const aViews = views[a.slug] ?? 0;
+				const bViews = views[b.slug] ?? 0;
+				return bViews - aViews;
+			})
+		: featuredSlugs
+				.map((slug) => allPublishedProjects.find((p) => p.slug === slug))
+				.filter((p): p is (typeof allPublishedProjects)[number] => Boolean(p));
+
   return (
     <section id="projects" className="w-full min-h-screen flex flex-col items-center justify-center relative px-4 py-24 overflow-hidden">
       {/* Section Header */}

@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
-import { allProjects } from 'contentlayer/generated';
 import { SEO as SEOConstants } from './constants/seo';
+import { getPublishedProjects } from '@/lib/projects';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static routes with their last modification date
   const staticRoutes = [
     {
@@ -26,8 +26,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ] as MetadataRoute.Sitemap;
 
   // Dynamic project routes with enhanced SEO information
-  const projectRoutes = allProjects
-    .filter(project => project.published)
+  const publishedProjects = await getPublishedProjects();
+  const projectRoutes = publishedProjects
     .map(project => {
       // Determine priority based on featured status and recency
       const isFeatured = ["letmedoit", "survey-heart-android", "crishna.in"].includes(project.slug);

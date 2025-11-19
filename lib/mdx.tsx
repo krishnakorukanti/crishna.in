@@ -5,16 +5,15 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import type { MDXComponents } from "mdx/types";
-import type { SerializeOptions } from "next-mdx-remote/dist/types";
 import type { PluggableList } from "unified";
+import type { ComponentType } from "react";
 
 function clsx(...classes: Array<string | undefined | false | null>) {
 	return classes.filter(Boolean).join(" ");
 }
 
-export const mdxComponents: MDXComponents = {
-	h1: ({ className, ...props }) => (
+export const mdxComponents = {
+	h1: ({ className, ...props }: any) => (
 		<h1
 			className={clsx(
 				"mt-2 scroll-m-20 text-4xl font-bold tracking-tight text-gray-900",
@@ -23,7 +22,7 @@ export const mdxComponents: MDXComponents = {
 			{...props}
 		/>
 	),
-	h2: ({ className, ...props }) => (
+	h2: ({ className, ...props }: any) => (
 		<h2
 			className={clsx(
 				"mt-10 scroll-m-20 border-b border-b-gray-200 pb-3 text-3xl font-semibold tracking-tight first:mt-0 text-gray-900",
@@ -32,7 +31,7 @@ export const mdxComponents: MDXComponents = {
 			{...props}
 		/>
 	),
-	h3: ({ className, ...props }) => (
+	h3: ({ className, ...props }: any) => (
 		<h3
 			className={clsx(
 				"mt-8 scroll-m-20 text-2xl font-semibold tracking-tight text-gray-900",
@@ -41,7 +40,7 @@ export const mdxComponents: MDXComponents = {
 			{...props}
 		/>
 	),
-	a: ({ className, ...props }) => (
+	a: ({ className, ...props }: any) => (
 		<Link
 			className={clsx(
 				"font-medium text-blue-600 underline underline-offset-4 hover:text-blue-700 transition-colors",
@@ -50,28 +49,28 @@ export const mdxComponents: MDXComponents = {
 			{...props}
 		/>
 	),
-	p: ({ className, ...props }) => (
+	p: ({ className, ...props }: any) => (
 		<p
 			className={clsx("leading-7 text-gray-600 [&:not(:first-child)]:mt-6", className)}
 			{...props}
 		/>
 	),
-	ul: ({ className, ...props }) => (
+	ul: ({ className, ...props }: any) => (
 		<ul
 			className={clsx("my-6 ml-6 list-disc text-gray-600 space-y-2", className)}
 			{...props}
 		/>
 	),
-	ol: ({ className, ...props }) => (
+	ol: ({ className, ...props }: any) => (
 		<ol
 			className={clsx("my-6 ml-6 list-decimal text-gray-600 space-y-2", className)}
 			{...props}
 		/>
 	),
-	li: ({ className, ...props }) => (
+	li: ({ className, ...props }: any) => (
 		<li className={clsx("mt-2 text-gray-600", className)} {...props} />
 	),
-	blockquote: ({ className, ...props }) => (
+	blockquote: ({ className, ...props }: any) => (
 		<blockquote
 			className={clsx(
 				"mt-6 border-l-2 border-gray-300 pl-6 italic text-gray-500 [&>*]:text-gray-700",
@@ -80,7 +79,7 @@ export const mdxComponents: MDXComponents = {
 			{...props}
 		/>
 	),
-	img: ({ className, alt = "", src, ...props }) => {
+	img: ({ className, alt = "", src, ...props }: any) => {
 		// Check if this is part of a gallery (has alt text suggesting it's a screenshot)
 		const isScreenshot = alt?.toLowerCase().includes("screenshot") || 
 			alt?.toLowerCase().includes("dashboard") ||
@@ -124,7 +123,7 @@ export const mdxComponents: MDXComponents = {
 		);
 	},
 	Image,
-	pre: ({ className, ...props }) => (
+	pre: ({ className, ...props }: any) => (
 		<pre
 			className={clsx(
 				"mt-6 mb-4 overflow-x-auto rounded-lg bg-gray-900 py-4 text-sm",
@@ -133,7 +132,7 @@ export const mdxComponents: MDXComponents = {
 			{...props}
 		/>
 	),
-	code: ({ className, ...props }) => (
+	code: ({ className, ...props }: any) => (
 		<code
 			className={clsx(
 				"relative rounded border border-gray-200 bg-gray-100 px-1.5 py-0.5 font-mono text-sm text-gray-800",
@@ -176,7 +175,7 @@ const rehypePlugins: PluggableList = [
 	],
 ];
 
-const mdxOptions: SerializeOptions["mdxOptions"] = {
+const mdxOptions = {
 	remarkPlugins,
 	rehypePlugins,
 };

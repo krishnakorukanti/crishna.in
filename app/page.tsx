@@ -110,12 +110,12 @@ export default async function Home() {
 									>
 										View selected work
 									</Link>
-									<Link
-										href="mailto:krishnakorukanti@gmail.com"
-										className="rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-gray-800"
-									>
-										Contact me
-									</Link>
+								<Link
+									href="mailto:hello@crishna.in"
+									className="rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-gray-800"
+								>
+									Contact me
+								</Link>
 								</div>
 							</div>
 
@@ -216,7 +216,7 @@ export default async function Home() {
 								<h2 className="text-3xl font-semibold text-gray-900">Wanna see my track record?</h2>
 							</div>
 							<Link
-								href="mailto:krishnakorukanti@gmail.com"
+								href="mailto:hello@crishna.in"
 								className="self-start md:self-auto rounded-full bg-black text-white px-6 py-3 text-sm font-medium shadow-lg shadow-black/15"
 							>
 								Book a call
@@ -290,7 +290,7 @@ export default async function Home() {
 						<div className="rounded-[28px] border border-gray-100 p-8 space-y-6">
 							<p className="text-sm text-gray-500 uppercase tracking-wide">Let&apos;s chat</p>
 							<h2 className="text-3xl font-semibold text-gray-900">Let’s connect and build something memorable.</h2>
-							<Link href="mailto:krishnakorukanti@gmail.com" className="text-gray-900 font-semibold inline-flex items-center gap-2">
+							<Link href="mailto:hello@crishna.in" className="text-gray-900 font-semibold inline-flex items-center gap-2">
 								hello@crishna.in
 								<ArrowUpRight className="h-5 w-5" />
 							</Link>

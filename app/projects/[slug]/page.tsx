@@ -113,9 +113,10 @@ export default async function PostPage({ params }: Props) {
 		.slice(0, 3);
 
 	// Extract screenshots from body
-	const screenshotMatches = project.body.matchAll(/!\[([^\]]*)\]\(([^)]+)\)/g);
+	const screenshotRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
 	const screenshots: Array<{ src: string; alt: string }> = [];
-	for (const match of screenshotMatches) {
+	let match;
+	while ((match = screenshotRegex.exec(project.body)) !== null) {
 		screenshots.push({
 			alt: match[1],
 			src: match[2],

@@ -5,7 +5,7 @@
 The security of this project is taken seriously. If you believe you've found a security vulnerability in this project, please follow these steps:
 
 1. **Do not disclose the vulnerability publicly** or to any third parties.
-2. **Submit the report privately** by sending an email to [krishnakorukanti@gmail.com](mailto:krishnakorukanti@gmail.com) with the subject "crishna.in Security Vulnerability".
+2. **Submit the report privately** by sending an email to [hello@crishna.in](mailto:hello@crishna.in) with the subject "crishna.in Security Vulnerability".
 3. **Include details in your report**:
    - Description of the vulnerability
    - Steps to reproduce

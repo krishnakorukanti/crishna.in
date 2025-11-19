@@ -17,7 +17,7 @@ export const mdxComponents: MDXComponents = {
 	h1: ({ className, ...props }) => (
 		<h1
 			className={clsx(
-				"mt-2 scroll-m-20 text-4xl font-bold tracking-tight text-white",
+				"mt-2 scroll-m-20 text-4xl font-bold tracking-tight text-gray-900",
 				className,
 			)}
 			{...props}
@@ -26,7 +26,7 @@ export const mdxComponents: MDXComponents = {
 	h2: ({ className, ...props }) => (
 		<h2
 			className={clsx(
-				"mt-10 scroll-m-20 border-b border-b-zinc-800 pb-1 text-3xl font-semibold tracking-tight first:mt-0",
+				"mt-10 scroll-m-20 border-b border-b-gray-200 pb-3 text-3xl font-semibold tracking-tight first:mt-0 text-gray-900",
 				className,
 			)}
 			{...props}
@@ -35,7 +35,7 @@ export const mdxComponents: MDXComponents = {
 	h3: ({ className, ...props }) => (
 		<h3
 			className={clsx(
-				"mt-8 scroll-m-20 text-2xl font-semibold tracking-tight",
+				"mt-8 scroll-m-20 text-2xl font-semibold tracking-tight text-gray-900",
 				className,
 			)}
 			{...props}
@@ -44,7 +44,7 @@ export const mdxComponents: MDXComponents = {
 	a: ({ className, ...props }) => (
 		<Link
 			className={clsx(
-				"font-medium text-blue-200 underline underline-offset-4 hover:text-blue-300 transition-colors",
+				"font-medium text-blue-600 underline underline-offset-4 hover:text-blue-700 transition-colors",
 				className,
 			)}
 			{...props}
@@ -52,47 +52,82 @@ export const mdxComponents: MDXComponents = {
 	),
 	p: ({ className, ...props }) => (
 		<p
-			className={clsx("leading-7 text-zinc-200 [&:not(:first-child)]:mt-6", className)}
+			className={clsx("leading-7 text-gray-600 [&:not(:first-child)]:mt-6", className)}
 			{...props}
 		/>
 	),
 	ul: ({ className, ...props }) => (
 		<ul
-			className={clsx("my-6 ml-6 list-disc text-zinc-200 space-y-2", className)}
+			className={clsx("my-6 ml-6 list-disc text-gray-600 space-y-2", className)}
 			{...props}
 		/>
 	),
 	ol: ({ className, ...props }) => (
 		<ol
-			className={clsx("my-6 ml-6 list-decimal text-zinc-200 space-y-2", className)}
+			className={clsx("my-6 ml-6 list-decimal text-gray-600 space-y-2", className)}
 			{...props}
 		/>
 	),
 	li: ({ className, ...props }) => (
-		<li className={clsx("mt-2 text-zinc-300", className)} {...props} />
+		<li className={clsx("mt-2 text-gray-600", className)} {...props} />
 	),
 	blockquote: ({ className, ...props }) => (
 		<blockquote
 			className={clsx(
-				"mt-6 border-l-2 border-zinc-600 pl-6 italic text-zinc-400 [&>*]:text-zinc-200",
+				"mt-6 border-l-2 border-gray-300 pl-6 italic text-gray-500 [&>*]:text-gray-700",
 				className,
 			)}
 			{...props}
 		/>
 	),
-	img: ({ className, alt = "", ...props }) => (
-		// eslint-disable-next-line @next/next/no-img-element
-		<img
-			className={clsx("rounded-md border border-zinc-800", className)}
-			alt={alt}
-			{...props}
-		/>
-	),
+	img: ({ className, alt = "", src, ...props }) => {
+		// Check if this is part of a gallery (has alt text suggesting it's a screenshot)
+		const isScreenshot = alt?.toLowerCase().includes("screenshot") || 
+			alt?.toLowerCase().includes("dashboard") ||
+			alt?.toLowerCase().includes("interface") ||
+			src?.toString().includes("pocketcare") ||
+			src?.toString().includes("biskit") ||
+			src?.toString().includes("perc") ||
+			src?.toString().includes("soleil") ||
+			src?.toString().includes("letmedoit") ||
+			src?.toString().includes("survey");
+
+		if (isScreenshot) {
+			return (
+				<div className="my-8 group">
+					{/* eslint-disable-next-line @next/next/no-img-element */}
+					<img
+						className={clsx(
+							"rounded-2xl border border-gray-200 shadow-[0_10px_40px_rgba(15,23,42,0.08)] transition-all duration-300 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)] hover:scale-[1.02] w-full",
+							className,
+						)}
+						alt={alt}
+						src={src}
+						{...props}
+					/>
+					{alt && (
+						<p className="text-center text-sm text-gray-500 mt-3 font-medium">{alt}</p>
+					)}
+				</div>
+			);
+		}
+
+		// Regular images
+		return (
+			// eslint-disable-next-line @next/next/no-img-element
+			<img
+				className={clsx("rounded-lg border border-gray-200 shadow-sm my-6", className)}
+				alt={alt}
+				src={src}
+				{...props}
+			/>
+		);
+	},
 	Image,
 	pre: ({ className, ...props }) => (
 		<pre
 			className={clsx(
-				"mt-6 mb-4 overflow-x-auto rounded-lg bg-zinc-900/80 py-4 text-sm",
+				"mt-6 mb-4 overflow-x-auto rounded-lg bg-gray-900 py-4 text-sm",
 				className,
 			)}
 			{...props}
@@ -101,7 +136,7 @@ export const mdxComponents: MDXComponents = {
 	code: ({ className, ...props }) => (
 		<code
 			className={clsx(
-				"relative rounded border border-zinc-800 bg-zinc-900 px-1.5 py-0.5 font-mono text-sm text-zinc-100",
+				"relative rounded border border-gray-200 bg-gray-100 px-1.5 py-0.5 font-mono text-sm text-gray-800",
 				className,
 			)}
 			{...props}

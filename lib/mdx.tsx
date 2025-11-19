@@ -5,8 +5,6 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import type { PluggableList } from "unified";
-import type { ComponentType } from "react";
 
 function clsx(...classes: Array<string | undefined | false | null>) {
 	return classes.filter(Boolean).join(" ");
@@ -143,9 +141,9 @@ export const mdxComponents = {
 	),
 };
 
-const remarkPlugins: PluggableList = [remarkGfm];
+const remarkPlugins = [remarkGfm];
 
-const rehypePlugins: PluggableList = [
+const rehypePlugins = [
 	rehypeSlug,
 	[
 		rehypePrettyCode,
@@ -184,7 +182,10 @@ export async function renderMdx(source: string) {
 	const { content } = await compileMDX({
 		source,
 		options: {
-			mdxOptions,
+			mdxOptions: {
+				remarkPlugins,
+				rehypePlugins: rehypePlugins as any,
+			},
 		},
 		components: mdxComponents,
 	});

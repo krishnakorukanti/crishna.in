@@ -8,5 +8,6 @@
       "main": true,
       "dependabot/**": false
     }
-  }
+  },
+  "buildCommand": "npm run build"
 } 

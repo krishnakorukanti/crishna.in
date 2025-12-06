@@ -7,7 +7,7 @@ interface SEOProps {
   url?: string;
   ogImage?: string;
   noIndex?: boolean;
-  keywords?: string;
+  keywords?: string | string[];
   authors?: Array<{ name: string }>;
   openGraph?: {
     type?: string;
@@ -29,9 +29,16 @@ export function constructMetadata({
   openGraph,
 }: SEOProps = {}): Metadata {
   // Combine default keywords with page-specific keywords
+  // Handle both string (comma-separated) and array of strings
+  const additionalKeywords = Array.isArray(keywords) 
+    ? keywords 
+    : keywords 
+      ? keywords.split(', ').map(k => k.trim()) 
+      : [];
+
   const allKeywords = [
     ...SEOConstants.keywords,
-    ...(keywords ? keywords.split(', ') : []),
+    ...additionalKeywords,
     ...SEOConstants.names.variations
   ].join(', ');
 
@@ -80,4 +87,4 @@ export function constructMetadata({
       },
     },
   };
-} 
+}

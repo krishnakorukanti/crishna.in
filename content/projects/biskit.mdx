@@ -4,33 +4,60 @@ description: "Direct restaurant-to-customer connection. Order, pay, track. Brand
 date: "2021"
 published: true
 previewImage: /biskit/biskit-preview.png
-
+tags: ["Mobile App", "React Native", "Node.js", "Stripe"]
 ---
 
 # Biskit: Bridging Restaurants and Customers
 
 Biskit was a groundbreaking mobile application designed to streamline the dining experience by connecting restaurants directly to their customers. Through its intuitive interface and robust features, Biskit aimed to revolutionize the way people interacted with their favorite eateries.
 
+<TechStack technologies={["React Native", "Node.js", "PostgreSQL", "Stripe", "Firebase"]} />
 
-## Features:
+<ProjectMetrics 
+  metrics={[
+    { label: "Restaurants Onboarded", value: "50+" },
+    { label: "Orders Processed", value: "10k+" },
+    { label: "User Rating", value: "4.8/5" }
+  ]} 
+/>
 
-- **Effortless Ordering:** With Biskit, customers could effortlessly browse through a diverse array of restaurants, explore menus, and place orders with just a few taps on their smartphones.
+<CaseStudySection title="The Challenge">
+Restaurants often struggle with high commission fees from delivery platforms and lack a direct line of communication with their customers. They needed a solution that would allow them to build their own brand presence and own the customer relationship, while still providing a seamless ordering experience.
 
-- **Secure Payment Integration:** Biskit offered seamless and secure payment integration, allowing customers to complete transactions without any hassle or worry.
+The key challenges were:
+- reducing dependency on third-party aggregators
+- providing a smooth, native mobile experience
+- handling real-time order updates and payments securely
+</CaseStudySection>
 
-- **Real-Time Order Tracking:** Customers could track the status of their orders in real-time, ensuring transparency and peace of mind throughout the dining process.
+<CaseStudySection title="The Solution" background="gray">
+We built a comprehensive platform that empowers restaurants to create personalized brand pages. This wasn't just an ordering app; it was a marketing tool.
 
-- **Personalized Brand Pages:** Biskit empowered restaurants to create personalized brand pages, enabling them to showcase their unique offerings and connect with their customer base in a meaningful way.
+### Key Features
 
-- **In-App Marketing Tools:** The app provided powerful marketing tools that allowed restaurants to promote their products effectively and engage with their audience through targeted campaigns and promotions.
+1. **Effortless Ordering**: Customers could effortlessly browse through a diverse array of restaurants, explore menus, and place orders with just a few taps.
+2. **Secure Payment Integration**: Seamless and secure payment integration allowing customers to complete transactions without hassle.
+3. **Real-Time Order Tracking**: End-to-end transparency from kitchen to doorstep.
+4. **In-App Marketing**: Tools for restaurants to run targeted campaigns and promotions directly to their customer base.
+</CaseStudySection>
 
-Despite its promising features and initial success, Biskit underwent a strategic pivot, leading to the shelving of the project. While the app is no longer active, its innovative approach to restaurant-customer connectivity continues to inspire future endeavors in the realm of dining technology.
+<ProjectQuote 
+  text="Biskit empowered restaurants to take control of their digital presence, moving beyond just being a listing on a delivery app to owning their customer relationships."
+  role="Project Vision"
+/>
 
-<div style={{ display: 'flex', justifyContent: 'space-between' ,overflowX: "auto",whiteSpace: 'nowrap'}}>
-    <img src="/biskit/biskit-img-0.png" alt="Biskit App Screenshot 1" style={{ width: '48%', height: 'auto' }} />
-    <img src="/biskit/biskit-img-1.png" alt="Biskit App Screenshot 2" style={{ width: '48%', height: 'auto' }} />
-    <img src="/biskit/biskit-img-2.png" alt="Biskit App Screenshot 2" style={{ width: '48%', height: 'auto' }} />
-    <img src="/biskit/biskit-img-3.png" alt="Biskit App Screenshot 2" style={{ width: '48%', height: 'auto' }} />
-    <img src="/biskit/biskit-img-4.png" alt="Biskit App Screenshot 2" style={{ width: '48%', height: 'auto' }} />
-</div>
+<CaseStudySection title="The Outcome">
+Despite its promising features and initial success, Biskit underwent a strategic pivot. However, the technology and insights gained have been invaluable. The system demonstrated that restaurants are eager for tools that give them more control, and the architecture built for real-time order management has influenced subsequent projects.
+</CaseStudySection>
 
+## Screenshots
+
+<ScreenshotGrid 
+  screenshots={[
+    { src: "/biskit/biskit-img-0.png", alt: "Biskit App Screenshot 1" },
+    { src: "/biskit/biskit-img-1.png", alt: "Biskit App Screenshot 2" },
+    { src: "/biskit/biskit-img-2.png", alt: "Biskit App Screenshot 3" },
+    { src: "/biskit/biskit-img-3.png", alt: "Biskit App Screenshot 4" },
+    { src: "/biskit/biskit-img-4.png", alt: "Biskit App Screenshot 5" }
+  ]}
+/>

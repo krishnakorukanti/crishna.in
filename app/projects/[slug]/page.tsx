@@ -144,19 +144,10 @@ export default async function PostPage({ params }: Props) {
 
 				<StickyHeader initialText={project.title} />
 
-				<main className="max-w-5xl mx-auto px-4 lg:px-8 pt-6 pb-16 space-y-12">
-					<header className="flex items-center justify-between mb-8">
-						<span className="text-base font-semibold tracking-tight text-gray-900">{project.title}</span>
-						<Link
-							href="mailto:hello@crishna.in"
-							className="rounded-full bg-black px-6 py-2.5 text-sm font-medium text-white shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/25 transition-all duration-200"
-						>
-							Book a call
-						</Link>
-					</header>
+				<main className="max-w-5xl mx-auto px-4 lg:px-8 pt-28 pb-16 space-y-12">
 
 					{/* Hero Section */}
-					<div id="hero" className="bg-white rounded-[32px] shadow-[0_20px_60px_rgba(15,23,42,0.08)] overflow-hidden">
+					<div id="project-hero" className="bg-white rounded-[32px] shadow-[0_20px_60px_rgba(15,23,42,0.08)] overflow-hidden">
 						{project.previewImage && (
 							<div className="relative h-96 bg-gradient-to-br from-gray-50 to-gray-100">
 								<Image

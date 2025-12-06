@@ -1,0 +1,179 @@
+{
+  "basics": {
+    "name": "Crishna Korukanti",
+    "label": "Full Stack Engineer & AI Product Developer",
+    "image": "/profile.jpg",
+    "email": "hello@crishna.in",
+    "url": "https://crishna.in",
+    "summary": "I took a hands-on path to engineering—mastering Android development at a bootcamp, then going from student to teacher, and leading mobile engineering for apps with 10M+ downloads. Today, I build resilient full-stack AI platforms, lead engineering teams, and help aspiring developers find their vibe.",
+    "location": {
+      "city": "Hyderabad",
+      "region": "Telangana",
+      "countryCode": "IN"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "krishnakorukanti",
+        "url": "https://linkedin.com/in/krishnakorukanti"
+      },
+      {
+        "network": "GitHub",
+        "username": "krishnakorukanti",
+        "url": "https://github.com/krishnakorukanti"
+      },
+      {
+        "network": "Portfolio",
+        "username": "crishna.in",
+        "url": "https://crishna.in"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "HelloVibe",
+      "position": "Founder",
+      "url": "https://hellovibe.in",
+      "startDate": "2025-01-01",
+      "summary": "Founded as a side hustle to help aspiring developers master 'vibe coding'—the art of intuitive, product-minded development.",
+      "highlights": [
+        "Building a community-driven platform for developer education.",
+        "Creating content and tools to bridge the gap between coding and product thinking."
+      ]
+    },
+    {
+      "name": "Aiphant Technologies",
+      "position": "Senior Software Engineer",
+      "location": "Hyderabad, Telangana, India · Hybrid",
+      "startDate": "2023-03-01",
+      "endDate": "Present",
+      "summary": "Leading engineering initiatives for global clients, specializing in AI adaptation and full-stack product development.",
+      "highlights": [
+        "LetMeDoIt: Took total engineering lead, building Android & iOS apps, backend systems, and CI/CD pipelines. Led the team to achieve all launch milestones.",
+        "Soleil Space: Partnered with this media platform to build and launch their cross-platform mobile experience using React Native.",
+        "Perc: Built an internal AI-based movie and shows suggestion engine for a US Media Giant, pioneering early AI adaptation in their workflow."
+      ]
+    },
+    {
+      "name": "SurveyHeart LLP",
+      "position": "Lead Mobile Developer",
+      "location": "Hyderabad, Telangana, India",
+      "startDate": "2022-04-01",
+      "endDate": "2023-03-01",
+      "summary": "Promoted to lead mobile strategy after successful Android contributions. Scaled products to over 10M+ downloads.",
+      "highlights": [
+        "Launched and scaled the iOS application from scratch.",
+        "Led the migration of the legacy Android codebase from Java to Kotlin, significantly improving performance and maintainability.",
+        "Managed the mobile engineering team to support rapid user growth."
+      ]
+    },
+    {
+      "name": "SurveyHeart LLP",
+      "position": "Android Developer",
+      "location": "Hyderabad, Telangana, India",
+      "startDate": "2021-12-01",
+      "endDate": "2022-03-30",
+      "summary": "Joined as a core Android developer and quickly took ownership of key features.",
+      "highlights": [
+        "Played a key role in scaling the Android app to millions of users.",
+        "Optimized app performance and contributed to the early stages of the Java-to-Kotlin migration."
+      ]
+    },
+    {
+      "name": "Masai School",
+      "position": "Instructional Associate",
+      "location": "Remote",
+      "startDate": "2020-11-01",
+      "endDate": "2021-12-01",
+      "summary": "Recruited directly after graduation to teach the next generation of developers.",
+      "highlights": [
+        "Taught Java, Kotlin, and Android Development to student cohorts.",
+        " mentored students through technical challenges and interview preparation.",
+        "Contributed to the development of internal tools and projects for the school."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Masai School",
+      "area": "Android Development Bootcamp",
+      "studyType": "Intensive Bootcamp",
+      "startDate": "2019",
+      "endDate": "2020",
+      "score": "Project-Based Learning"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Mobile & Frontend",
+      "keywords": [
+        "React Native",
+        "Android (Kotlin/Java)",
+        "iOS (Swift)",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "name": "Backend & DevOps",
+      "keywords": [
+        "Node.js",
+        "Python",
+        "CI/CD Pipelines",
+        "Docker",
+        "AWS",
+        "Supabase",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "AI Engineering",
+      "keywords": [
+        "OpenAI API",
+        "LangChain",
+        "RAG Workflows",
+        "Recommendation Engines",
+        "LLM Integration"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "LetMeDoIt",
+      "description": "Engineering Lead. Built comprehensive backend systems, CI/CD pipelines, and launched native mobile apps for iOS and Android.",
+      "keywords": [
+        "Engineering Lead",
+        "Full Stack",
+        "App for people with disabilities",
+        "AI Integration"
+      ],
+      "url": "https://crishna.in",
+      "caseStudy": "Faced the challenge of managing a complex ecosystem of mobile apps and backend services while ensuring rapid deployment cycles. Built an AI agent to help users with disabilities make decisions, enabling seamless decision-making support across the platform."
+    },
+    {
+      "name": "Soleil Space",
+      "description": "Built and launched cross-platform mobile apps (Android & iOS) using React Native for media streaming.",
+      "keywords": [
+        "React Native",
+        "Streaming",
+        "Media"
+      ],
+      "url": "https://crishna.in",
+      "caseStudy": "Delivered a consistent, high-quality media streaming experience across Android and iOS by leveraging React Native for cross-platform efficiency, while writing native modules for performance-critical media features."
+    },
+    {
+      "name": "SurveyHeart",
+      "description": "Mobile survey platform with over 10M+ downloads.",
+      "keywords": [
+        "Android (Kotlin/Java)",
+        "iOS (Swift)",
+        "Survey Creation",
+        "Survey Management"
+      ],
+      "url": "https://crishna.in",
+      "caseStudy": "Ensured a consistent, high-quality survey experience across both platforms by leveraging Kotlin and Swift for native efficiency, while writing shared modules for performance-critical survey features that scaled to 10M+ downloads."
+    }
+  ]
+}

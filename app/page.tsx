@@ -39,7 +39,7 @@ const services = [
 const experiences = [
 	{
 		company: "Masai School",
-		role: "Android Developer & Instructor",
+		role: "Instructional Associate",
 		years: "2020–2021",
 	},
 	{
@@ -53,7 +53,7 @@ const experiences = [
 		years: "2023–present",
 	},
 	{
-		company: "Hellovibe",
+		company: "HelloVibe",
 		role: "Founder",
 		years: "2025–present",
 	},
@@ -70,7 +70,7 @@ const followTags = ["Follow me!", "Instagram", "LinkedIn"];
 
 export default async function Home() {
 	const projects = await getPublishedProjects();
-	const featuredProjects = projects.slice(0, 4);
+	const featuredProjects = projects.slice(0, 3);
 
 	return (
 		<>
@@ -84,7 +84,7 @@ export default async function Home() {
 							href="mailto:hello@crishna.in" 
 							className="rounded-full bg-black px-6 py-2.5 text-sm font-medium text-white shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/25 transition-all duration-200"
 						>
-							Book a call
+							Contact
 						</Link>
 					</header>
 
@@ -100,8 +100,7 @@ export default async function Home() {
 									</h1>
 								</div>
 								<p className="text-lg text-gray-500 max-w-2xl">
-									5 years shipping delightful, measurable products with high-growth startups and global brands.
-									I blend design strategy, engineering rigor, and AI-first thinking to launch products faster.
+									From mastering Android development at a bootcamp to teaching the next generation, then scaling apps to 10M+ downloads. Today, I engineer resilient full-stack AI platforms and lead engineering teams.
 								</p>
 								<div className="flex flex-wrap gap-3">
 									<Link
@@ -110,12 +109,6 @@ export default async function Home() {
 									>
 										View selected work
 									</Link>
-								<Link
-									href="mailto:hello@crishna.in"
-									className="rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-gray-800"
-								>
-									Contact me
-								</Link>
 								</div>
 							</div>
 
@@ -152,7 +145,7 @@ export default async function Home() {
 										The most recent brands I happily worked with
 									</p>
 									<div className="flex flex-wrap gap-3 text-sm font-medium text-gray-700">
-										{["LetMeDoIt", "Soleil Space", "Pocket care +"].map((client) => (
+										{["LetMeDoIt", "Soleil Space", "SurveyHeart"].map((client) => (
 											<span key={client} className="rounded-full bg-white/60 px-4 py-1 shadow-sm">
 												{client}
 											</span>
@@ -216,10 +209,10 @@ export default async function Home() {
 								<h2 className="text-3xl font-semibold text-gray-900">Wanna see my track record?</h2>
 							</div>
 							<Link
-								href="mailto:hello@crishna.in"
+								href="/resume"
 								className="self-start md:self-auto rounded-full bg-black text-white px-6 py-3 text-sm font-medium shadow-lg shadow-black/15"
 							>
-								Book a call
+								View Full Resume
 							</Link>
 						</div>
 						<div className="grid gap-4 md:grid-cols-2">

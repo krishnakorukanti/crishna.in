@@ -5,10 +5,13 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { CaseStudySection } from "@/app/components/case-study/CaseStudySection";
+import { ProjectMetrics } from "@/app/components/case-study/ProjectMetrics";
+import { TechStack } from "@/app/components/case-study/TechStack";
+import { ProjectQuote } from "@/app/components/case-study/ProjectQuote";
+import { ScreenshotGrid } from "@/app/components/case-study/ScreenshotGrid";
 
-function clsx(...classes: Array<string | undefined | false | null>) {
-	return classes.filter(Boolean).join(" ");
-}
+import { clsx } from "@/lib/utils";
 
 export const mdxComponents = {
 	h1: ({ className, ...props }: any) => (
@@ -139,6 +142,12 @@ export const mdxComponents = {
 			{...props}
 		/>
 	),
+	// Custom Case Study Components
+	CaseStudySection,
+	ProjectMetrics,
+	TechStack,
+	ProjectQuote,
+	ScreenshotGrid,
 };
 
 const remarkPlugins = [remarkGfm];
@@ -192,4 +201,3 @@ export async function renderMdx(source: string) {
 
 	return content;
 }
-

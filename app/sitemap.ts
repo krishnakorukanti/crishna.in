@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projectRoutes = publishedProjects
     .map(project => {
       // Determine priority based on featured status and recency
-      const isFeatured = ["letmedoit", "survey-heart-android", "crishna.in"].includes(project.slug);
+      const isFeatured = ["letmedoit", "pocketcare", "survey-heart-android"].includes(project.slug);
       const isRecent = project.date && new Date(project.date) > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000); // Within last 30 days
       
       let priority = 0.75; // Default priority

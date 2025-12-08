@@ -13,7 +13,7 @@ interface ProjectsSectionProps {
 }
 
 export default async function ProjectsSection({
-	featuredSlugs = ["letmedoit", "survey-heart-android", "crishna.in"],
+	featuredSlugs = ["letmedoit", "pocketcare", "survey-heart-android"],
 	showAllProjects = false,
 }: ProjectsSectionProps) {
 	const allPublishedProjects = await getPublishedProjects();

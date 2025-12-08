@@ -70,7 +70,10 @@ const followTags = ["Follow me!", "Instagram", "LinkedIn"];
 
 export default async function Home() {
 	const projects = await getPublishedProjects();
-	const featuredProjects = projects.slice(0, 3);
+	const featuredSlugs = ["letmedoit", "pocketcare", "survey-heart-android"];
+	const featuredProjects = featuredSlugs
+		.map((slug) => projects.find((p) => p.slug === slug))
+		.filter((p): p is (typeof projects)[number] => Boolean(p));
 
 	return (
 		<>
@@ -206,7 +209,7 @@ export default async function Home() {
 						<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 							<div>
 								<p className="text-lg text-gray-500">Experience</p>
-								<h2 className="text-3xl font-semibold text-gray-900">Wanna see my track record?</h2>
+								<h2 className="text-3xl font-semibold text-gray-900">Professional Journey</h2>
 							</div>
 							<Link
 								href="/resume"

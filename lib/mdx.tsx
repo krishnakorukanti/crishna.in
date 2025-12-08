@@ -94,7 +94,7 @@ export const mdxComponents = {
 
 		if (isScreenshot) {
 			return (
-				<div className="my-8 group">
+				<span className="block my-8 group">
 					{/* eslint-disable-next-line @next/next/no-img-element */}
 					<img
 						className={clsx(
@@ -106,9 +106,9 @@ export const mdxComponents = {
 						{...props}
 					/>
 					{alt && (
-						<p className="text-center text-sm text-gray-500 mt-3 font-medium">{alt}</p>
+						<span className="block text-center text-sm text-gray-500 mt-3 font-medium">{alt}</span>
 					)}
-				</div>
+				</span>
 			);
 		}
 
